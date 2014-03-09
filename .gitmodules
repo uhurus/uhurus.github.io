@@ -1,0 +1,3 @@
+[submodule "src/CSSmethods"]
+	path = src/CSSmethods
+	url = https://github.com/aberigle/CSSmethods
