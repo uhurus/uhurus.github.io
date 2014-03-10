@@ -6,7 +6,7 @@ do ->
     init: ->
       aberigle = @dom "#aberigle"
       aberigle.innerHTML = 
-        (for letter in aberigle.innerText.split ""
+        (for letter in aberigle.innerHTML.split ""
           """<span id="#{letter.toLowerCase()}">#{letter}</span>""").join ""
 
     dom: (selector) ->

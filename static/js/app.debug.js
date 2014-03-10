@@ -15,7 +15,7 @@
         aberigle = this.dom("#aberigle");
         return aberigle.innerHTML = ((function() {
           var _i, _len, _ref, _results;
-          _ref = aberigle.innerText.split("");
+          _ref = aberigle.innerHTML.split("");
           _results = [];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             letter = _ref[_i];
