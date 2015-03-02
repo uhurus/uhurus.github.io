@@ -4,8 +4,8 @@ do ->
     constructor: -> window.onload = => do @init
 
     init: ->
-      aberigle = @dom "#aberigle"
-      aberigle.innerHTML = 
+      aberigle = @dom "#hero"
+      aberigle.innerHTML =
         (for letter in aberigle.innerHTML.split ""
           """<span id="#{letter.toLowerCase()}">#{letter}</span>""").join ""
 

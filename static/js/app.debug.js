@@ -12,16 +12,16 @@
 
       App.prototype.init = function() {
         var aberigle, letter;
-        aberigle = this.dom("#aberigle");
+        aberigle = this.dom("#hero");
         return aberigle.innerHTML = ((function() {
-          var _i, _len, _ref, _results;
-          _ref = aberigle.innerHTML.split("");
-          _results = [];
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            letter = _ref[_i];
-            _results.push("<span id=\"" + (letter.toLowerCase()) + "\">" + letter + "</span>");
+          var i, len, ref, results;
+          ref = aberigle.innerHTML.split("");
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            letter = ref[i];
+            results.push("<span id=\"" + (letter.toLowerCase()) + "\">" + letter + "</span>");
           }
-          return _results;
+          return results;
         })()).join("");
       };
 
