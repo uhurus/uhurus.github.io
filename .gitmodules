@@ -1,0 +1,6 @@
+[submodule "src/CSSmethods"]
+	path = src/CSSmethods
+	url = https://github.com/aberigle/CSSmethods
+[submodule "flappy"]
+	path = flappy
+	url = https://github.com/aberigle/floppybird
