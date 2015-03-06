@@ -1,16 +1,34 @@
 @import "../CSSmethods/vendor.styl"
 @import url("http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700")
 
+THEME = #00A362
+DARK  = #444
+
 html, body
   height 100%
   margin 0
 
 body
   font-family 'Roboto Condensed', sans-serif
-  background #444
-  border 5px solid #00A362
+  background DARK
+  border 5px solid THEME
   box-sizing border-box
   width 100%
+
+#mail
+  text-align center
+  font-size 5em
+  margin-top 0
+  a
+    text-decoration none
+    color THEME
+    padding 1rem 2rem
+    transition all 400ms
+    border 1px solid THEME
+    border-radius 5px
+    &:hover
+      color DARK
+      background THEME
 
 #hero
   margin 0
@@ -19,7 +37,7 @@ body
   font-size 13em
   transition-duration 1s
   transition all 1s
-  color #00A362
+  color THEME
 
   span
     display inline-block;
@@ -60,7 +78,7 @@ body
         background rgba(0,0,0,0.5)
         box-shadow -5px 0 10px 10px rgba(0,0,0,0.5)
         transform rotateX(0) translateZ(-130px) scale(0.85)
-    // 
+    //
     // &.in
     //   box-shadow 0px 1px 10px #aaa inset
     // &.out
