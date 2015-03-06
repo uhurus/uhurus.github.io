@@ -12,6 +12,31 @@ body {
   box-sizing: border-box;
   width: 100%;
 }
+#mail {
+  text-align: center;
+  font-size: 5em;
+  margin-top: 0;
+}
+#mail a {
+  text-decoration: none;
+  color: #00a362;
+  padding: 1rem 2rem;
+  -webkit-transition: all 400ms;
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+  border: 1px solid #00a362;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+#mail a:hover {
+  color: #444;
+  background: #00a362;
+}
 #hero {
   margin: 0;
   padding: 10% 0;
