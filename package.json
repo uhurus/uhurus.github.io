@@ -1,21 +1,23 @@
 {
   "name": "app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author" : {
-    "name" : "_NAME_",
-    "email" : "_EMAIL_"
+    "name" : "@aberigle",
+    "email" : "aberigle@uhurus.com"
   },
-  "dependencies": {},
-  "devDependencies" : {
-    "grunt" : "",
-    "grunt-contrib-coffee" : "",
-    "grunt-contrib-stylus" : "",
-    "grunt-contrib-jade" : "",
-    "grunt-contrib-uglify" : "",
-    "grunt-contrib-concat" : "",
-    "grunt-contrib-watch" : "",
-    "grunt-contrib-copy" : "",
-    "load-grunt-tasks" : ""
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "vite-plugin-html-inject": "^1.1.2"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1"
   }
 }
 
