@@ -2,19 +2,24 @@
 
 :root {
   --color-theme: #00a362;
-  --color-bg : #444;
+  --color-bg: #444;
 }
+
 html,
 body {
   height: 100%;
   margin: 0;
 }
+
 body {
   font-family: 'Outfit', sans-serif;
   background: var(--color-bg);
   border: 5px solid var(--color-theme);
   box-sizing: border-box;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
@@ -27,7 +32,7 @@ body {
 }
 
 a.icon {
-  padding: .6em ;
+  padding: .6em;
   transition: all 300ms;
   flex-grow: 1;
   place-content: center;
@@ -40,26 +45,10 @@ a.icon {
   font-size: .8em;
 }
 
-a.bsky:hover, a.bsky.active {
-  background: #0a7aff;
-  box-shadow: 0 0 1em #0a7aff;
-}
-
-a.github:hover, a.github.active{
-  background: black;
-  box-shadow: 0 0 1em black;
-}
-a.google-plus:hover, a.google-plus.active {
-  background: #db4b39;
-  box-shadow: 0 0 1em #db4b39;
-}
-a.linkedin:hover, a.linkedin.active {
-  background: #0077B5;
-  box-shadow: 0 0 1em #0077B5;
-}
-a.envelope:hover, a.envelope.active {
-  background: #00a362;
-  box-shadow: 0 0 1em #00a362;
+a.envelope:hover,
+a.envelope.active {
+  background: var(--color-theme);
+  box-shadow: 0 0 1em var(--color-theme);
 }
 
 a.icon svg {
@@ -71,15 +60,26 @@ a.icon svg {
   fill: white;
 }
 
+@media (max-width: 600px) {
+  #hero {
+    font-size: 6em !important;
+  }
+  a.icon {
+    font-size: 1em;
+  }
+}
+
 #hero {
   font-weight: 200;
   margin: 0;
-  padding: 10% 0;
   text-align: center;
   font-size: 10em;
+  margin-bottom: 3em;
   color: var(--color-theme);
 }
+
 #hero span {
+  user-select: none;
   cursor: pointer;
   display: inline-block;
   border-bottom: 3px solid var(--color-theme);
@@ -87,9 +87,10 @@ a.icon svg {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
+
 #hero span:after {
   border-top: 3px solid var(--color-theme);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   content: "";
   position: absolute;
   width: 100%;
@@ -99,19 +100,21 @@ a.icon svg {
   transform: rotateX(90deg);
   transform-origin: bottom;
 }
+
 #hero span:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 10px 10px rgba(0,0,0,0);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0);
   transition: all 0.3s;
   transform: rotateX(80deg) translateZ(-50px) scale(0.75);
   transform-origin: bottom;
 }
+
 #hero span:hover {
   font-weight: 400;
   transform: rotateX(30deg);
@@ -120,7 +123,7 @@ a.icon svg {
 
 #hero span:hover:before {
   opacity: 1;
-  background: rgba(0,0,0,0.5);
-  box-shadow: -5px 0 10px 10px rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: -5px 0 10px 10px rgba(0, 0, 0, 0.5);
   transform: rotateX(0) translateZ(-130px) scale(0.85);
 }
