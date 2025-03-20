@@ -115,13 +115,13 @@ a.icon svg {
   transform-origin: bottom;
 }
 
-#hero span:hover {
+#hero span:hover, #hero span:focus {
   font-weight: 400;
   transform: rotateX(30deg);
   transform-origin: bottom;
 }
 
-#hero span:hover:before {
+#hero span:hover:before, #hero span:focus::before {
   opacity: 1;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: -5px 0 10px 10px rgba(0, 0, 0, 0.5);
