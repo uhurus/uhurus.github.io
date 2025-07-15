@@ -1,0 +1,23 @@
+---
+import logo from "../../assets/logo.svg?raw"
+function addAttributesToInnerHTMLString(
+  innerHTML: string,
+  attributes: Record<string, string>
+) {
+  const attributesString = Object.entries(attributes)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(" ")
+
+  return innerHTML.replace(/^<svg/, `<svg ${attributesString}`)
+}
+const { ...attributes } = Astro.props
+const innerHTML = addAttributesToInnerHTMLString(logo, {
+  style: "color: var(--color-neutral);",
+  ...attributes,
+})
+---
+
+<div class="flex items-center">
+  <Fragment set:html={innerHTML} />
+  <p class="quicksand font-bold text-neutral-content">uhurus</p>
+</div>

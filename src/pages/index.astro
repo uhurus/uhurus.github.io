@@ -1,0 +1,439 @@
+---
+import ContactForm from "../components/ContactForm.astro"
+import GoogleAppoinment from "../components/GoogleAppoinment.astro"
+import InfoCard from "../components/layout/InfoCard.astro"
+import Layout from "../layouts/Layout.astro"
+import "../styles/app.css"
+---
+
+<Layout>
+  <section class="bg-neutral py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex items-center">
+        <div class="md:w-2/3 mx-auto mb-10 md:mb-0">
+          <h1
+            class="text-neutral-content text-4xl md:text-5xl font-semibold leading-tight mb-6"
+          >
+            Transforma los <span class="text-accent font-bold"
+              >retos financieros</span
+            >
+            en tu ventaja competitiva
+          </h1>
+          <p class="text-xl text-neutral-content mb-8">
+            ¿Sientes que tus finanzas frenan el ritmo de tu negocio? Te ayudamos
+            a ponerlas a la altura del resto de tu empresa, convirtiendo
+            obligaciones en oportunidades.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#contacto"
+              class="btn btn-accent btn-lg"
+            >
+              Habla con nosotros
+            </a>
+            <a
+              href="#servicios"
+              class="btn btn-lg"
+            >
+              Ver casos de uso
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-gray-500 mb-8">Confían en nosotros:</p>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
+        <div class="text-gray-400 text-4xl font-bold opacity-70">PSD2</div>
+        <div class="text-gray-400 text-4xl font-bold opacity-70">SEPA</div>
+        <div class="text-gray-400 text-4xl font-bold opacity-70">VISA</div>
+        <div class="text-gray-400 text-4xl font-bold opacity-70">GDPR</div>
+        <div class="text-gray-400 text-4xl font-bold opacity-70">SWIFT</div>
+      </div>
+    </div>
+  </section> -->
+
+  <section
+    id="servicios"
+    class="py-20"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Soluciones para <span class="text-accent"
+            >estructuras financieras complejas</span
+          >
+        </h2>
+        <p class="text-xl text-neutral max-w-3xl mx-auto">
+          Especializados en modelos innovadores que requieren manejo avanzado de
+          pagos y cumplimiento.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <InfoCard
+          title="Marketplaces & Plataformas"
+          description="Diseñamos la arquitectura de pagos para modelos multi-partes (split payments, reconciliación automática...)."
+          icon="fa-robot"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Flujos de dinero entre múltiples actores</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Lógica de comisiones y referidos</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+
+        <InfoCard
+          title="Cumplimiento Inteligente"
+          description="Integramos regulaciones en tu producto desde el diseño, sin sacrificar experiencia de usuario."
+          icon="fa-shield-alt"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>KYC/AML automatizado</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Reporting regulatorio</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+
+        <InfoCard
+          title="APIs Bancarias & Pagos"
+          description="Conectamos tu plataforma con esquemas de pago (VISA, SEPA) y APIs bancarias bajo arquitecturas escalables."
+          icon="fa-project-diagram"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Integración con entidades financieras</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Optimización de costes transaccionales</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiencia -->
+  <section
+    id="experiencia"
+    class="py-20 bg-base-200"
+  >
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex items-center gap-12">
+        <div class="">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Amplia experiencia <span class="text-accent">Fintech</span>
+          </h2>
+          <p class="text-xl text-neutral mb-8">
+            Con +10 años liderando innovación en empresas fintech y entidades de
+            pago reguladas, hemos enfrentado los mismos desafíos que tu
+            proyecto.
+          </p>
+          <div class="space-y-6">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="badge badge-soft badge-xl badge-accent w-14 py-7">
+                  <i class="fas fa-medal text-xl"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium">Arquitecturas escalables</h4>
+                <p class="text-neutral mt-1">
+                  Hemos diseñado sistemas que procesan millones de
+                  transacciones.
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="badge badge-soft badge-xl badge-accent w-14 py-7">
+                  <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium">Modelos innovadores</h4>
+                <p class="text-neutral mt-1">
+                  Desde marketplaces B2B hasta plataformas de referidos con
+                  lógica de pagos multi-nivel.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a
+              href="#metodologia"
+              class="inline-flex items-center text-accent font-medium"
+            >
+              Ver nuestra metodología <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología (Resumen) -->
+  <section
+    id="metodologia"
+    class="py-20"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Metodología <span class="text-accent">ágil</span> y centrada en <span
+            class="text-accent">resultados</span
+          >
+        </h2>
+        <p class="text-xl text-neutral max-w-3xl mx-auto">
+          Combinamos una amplia experiencia técnica con un enfoque estratégico
+          para proyectos Fintech.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Paso 1 -->
+        <InfoCard
+          centered
+          title="Diagnóstico estratégico"
+          description="Identificamos riesgos técnicos/regulatorios y oportunidades de diferenciación."
+          iconText="1"
+        />
+
+        <InfoCard
+          centered
+          title="Prototipado rápido"
+          description=" MVP funcional para validar suposiciones críticas con usuarios reales."
+          iconText="2"
+        />
+        <InfoCard
+          centered
+          title="Desarrollo iterativo"
+          description="Ciclos de 2-4 semanas con entregables funcionales en cada uno."
+          iconText="3"
+        />
+        <InfoCard
+          centered
+          title="Escalado seguro"
+          description="Arquitectura preparada para crecimiento sin rehacer el código base."
+          iconText="4"
+        />
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="#contacto"
+          class="btn btn-accent"
+        >
+          ¿Cómo aplicaría a tu proyecto? Hablemos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Casos de Uso -->
+  <section
+    id="casos"
+    class="py-20 bg-base-200"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Casos de uso para <span class="text-accent">modelos complejos</span>
+        </h2>
+        <p class="text-xl text-neutral max-w-3xl mx-auto">
+          Hemos resuelto desafíos técnicos en proyectos innovadores:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card shadow-xl bg-base-100">
+          <div class="card-body">
+            <div class="flex items-center mb-4">
+              <div
+                class="badge badge-soft badge-accent badge-lg h-12 w-12 rounded-full"
+              >
+                <i class="fas fa-store"></i>
+              </div>
+              <h3 class="card-title ml-2">Marketplace B2B</h3>
+            </div>
+            <p class="text-neutral mb-4">
+              Plataforma con pagos divididos entre vendedor, marketplace y
+              socios. Implementamos:
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Lógica de reparto automático de fondos</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Reconciliación contable en tiempo real</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Cumplimiento con directiva de fondos electrónicos</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card shadow-xl bg-base-100">
+          <div class="card-body">
+            <div class="flex items-center mb-4">
+              <div
+                class="badge badge-soft badge-accent badge-lg h-12 w-12 rounded-full"
+              >
+                <i class="fas fa-user-friends text-accent"></i>
+              </div>
+              <h3 class="card-title ml-2">Programa de Referidos</h3>
+            </div>
+            <p class="text-neutral mb-4">
+              Sistema de comisiones multi-nivel con pagos automáticos.
+              Solucionamos:
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Validación KYC de referidores</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Liquidaciones automáticas</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                <span>Reporting fiscal integrado</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-xl text-neutral mb-6">
+          ¿Tu proyecto tiene desafíos similares?
+        </p>
+        <a
+          href="#contacto"
+          class="btn btn-lg btn-accent"
+        >
+          Analicemos tu caso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-accent">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        No dejes que la complejidad frene tu innovación
+      </h2>
+      <p class="text-xl mb-8 opacity-90">
+        En uhurus convertimos los desafíos técnicos y regulatorios en las bases
+        de tu ventaja competitiva.
+      </p>
+      <a
+        href="#contacto"
+        class="btn btn-lg"
+      >
+        Habla con nosotros
+      </a>
+    </div>
+  </section>
+
+  <section
+    id="contacto"
+    class="py-20"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex gap-12">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Hablemos de tu proyecto
+          </h2>
+          <p class="text-xl text-neutral mb-8">
+            Cuéntanos sobre tus desafíos y te propondremos un enfoque
+            técnico-estratégico a medida.
+          </p>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 text-accent mt-1">
+                <i class="fas fa-envelope text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium">Email</h4>
+                <p class="text-neutral text-sm">hola@uhurus.com</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 text-accent mt-1">
+                <i class="fas fa-map-marker-alt text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium">Ubicación</h4>
+                <p class="text-neutral text-sm">Barakaldo, Bizkaia</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 text-accent mt-1">
+                <i class="fas fa-calendar-check text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium">Llamada exploratoria</h4>
+                <p class="text-neutral text-sm mb-2">
+                  Hablamos sobre tu necesidad sin compromiso
+                </p>
+                <GoogleAppoinment label="Reservar" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault()
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        })
+        // Close mobile menu if open
+        document.getElementById("mobile-menu")?.classList.add("hidden")
+      })
+    })
+  </script>
+</Layout>

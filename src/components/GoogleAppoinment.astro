@@ -1,0 +1,28 @@
+---
+const { label = "Reservar una cita", color = "#00d492" } = Astro.props
+---
+
+<!-- Google Calendar Appointment Scheduling begin -->
+<link
+  href="https://calendar.google.com/calendar/scheduling-button-script.css"
+  rel="stylesheet"
+/>
+<script
+  src="https://calendar.google.com/calendar/scheduling-button-script.js"
+  async
+></script>
+
+<script id="google-appoinment" define:vars={{ label, color }}>
+  ;(function () {
+    var target = document.getElementById("google-appoinment")
+    window.addEventListener("load", function () {
+      calendar.schedulingButton.load({
+        url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1IA8ttF25_WB3tYDcbEA8eCIC05uZ7AQ-fhpD5lUxMz2nhdunXx6Q-DVc90DaBiNlPo21K62Ag?gv=true",
+        color,
+        label,
+        target
+      })
+    })
+  })()
+</script>
+<!-- end Google Calendar Appointment Scheduling -->

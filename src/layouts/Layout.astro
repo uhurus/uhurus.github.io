@@ -1,0 +1,101 @@
+---
+import Footer from "../components/layout/Footer.astro"
+import Header from "../components/layout/Header.astro"
+
+import "../styles/app.css"
+---
+
+<!doctype html>
+<html
+  lang="es"
+  class="scroll-smooth"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="¿Sientes que tus finanzas frenan el ritmo de tu negocio? Te ayudamos a ponerlas a la altura del resto de tu empresa, convirtiendo obligaciones en oportunidades."
+    />
+    <meta
+      name="keywords"
+      content="consultoría fintech, desarrollo fintech, cumplimiento regulatorio, arquitectura financiera, PSD2, PSD3, marketplaces financieros, pagos escalables"
+    />
+    <title>
+      uhurus | Transforma los retos financieros en tu ventaja competitiva
+    </title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://uhurus.com"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg"
+      href="favicon.svg"
+    />
+    <!-- Open Graph / Social -->
+    <meta
+      property="og:title"
+      content="uhurus | Transforma los retos financieros en tu ventaja competitiva"
+    />
+    <meta
+      property="og:description"
+      content="¿Sientes que tus finanzas frenan el ritmo de tu negocio? Te ayudamos a ponerlas a la altura del resto de tu empresa, convirtiendo obligaciones en oportunidades.."
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:url"
+      content="https://uhurus.com"
+    />
+    <meta
+      property="og:image"
+      content="https://uhurus.com/images/og-image.jpg"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "uhurus",
+        "image": "https://uhurus.com/images/logo.jpg",
+        "description": "Consultoría y desarrollo técnico-estratégico Fintech para empresas."
+      }
+    </script>
+    <slot name="head" />
+  </head>
+  <body
+    class="font-sans antialiased"
+    data-theme="light"
+  >
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

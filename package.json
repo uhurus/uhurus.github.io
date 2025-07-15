@@ -1,28 +1,24 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "author" : {
-    "name" : "@aberigle",
-    "email" : "aberigle@uhurus.com"
+  "author": {
+    "name": "@aberigle",
+    "email": "aberigle@uhurus.com"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "typescript": "^5.7.2",
-    "vite": "^6.0.1",
-    "vite-plugin-html-inject": "^1.1.2"
+    "astro": "^5.11.0",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
-    "@fortawesome/free-solid-svg-icons": "^6.7.1"
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@tailwindcss/vite": "^4.1.11",
+    "daisyui": "^5.0.46",
+    "tailwindcss": "^4.1.11"
   }
 }
-
-
-
-
-
-

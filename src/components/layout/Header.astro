@@ -1,0 +1,91 @@
+---
+import Logo from "./Logo.astro"
+---
+
+<header class="bg-neutral sticky top-0 z-50">
+  <!-- Navbar -->
+  <!-- Navigation -->
+  <nav class="navbar px-5">
+    <div class="navbar-start px-5">
+      <a href="/">
+        <Logo />
+      </a>
+    </div>
+    <div
+      class="navbar-center text-neutral-content md:flex hidden items-center justify-end"
+    >
+      <a
+        href="#servicios"
+        class="btn btn-ghost btn-neutral rounded-4xl"
+        >Servicios</a
+      >
+      <a
+        href="#experiencia"
+        class="btn btn-ghost btn-neutral rounded-4xl"
+        >Experiencia</a
+      >
+      <a
+        href="#metodologia"
+        class="btn btn-ghost btn-neutral rounded-4xl"
+        >Metodología</a
+      >
+      <a
+        href="#casos"
+        class="btn btn-ghost btn-neutral rounded-4xl"
+        >Casos de Uso</a
+      >
+    </div>
+    <div class="navbar-end">
+      <a
+        href="#contacto"
+        class="btn btn-accent font-bold hidden md:flex"
+        >Contactar</a
+      >
+      <div class="md:hidden flex items-center">
+        <button id="menu-btn">
+          <i class="fas fa-bars text-neutral-content text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="text-neutral-content transition-[height] md:hidden h-0 overflow-hidden flex flex-col justify-stretch px-4"
+  >
+    <a
+      href="#servicios"
+      class="btn btn-ghost btn-neutral rounded-4xl"
+      >Servicios</a
+    >
+    <a
+      href="#experiencia"
+      class="btn btn-ghost btn-neutral rounded-4xl"
+      >Experiencia</a
+    >
+    <a
+      href="#metodologia"
+      class="btn btn-ghost btn-neutral rounded-4xl"
+      >Metodología</a
+    >
+    <a
+      href="#casos"
+      class="btn btn-ghost btn-neutral rounded-4xl"
+      >Casos de Uso</a
+    >
+    <a
+      href="#contacto"
+      class="btn btn-accent font-bold mt-5"
+      >Contactar</a
+    >
+  </div>
+</header>
+
+<script>
+  function handleClick() {
+    document.getElementById("mobile-menu").classList.toggle("h-65")
+  }
+  // Mobile menu toggle
+
+  document.getElementById("menu-btn").addEventListener("click", handleClick)
+</script>

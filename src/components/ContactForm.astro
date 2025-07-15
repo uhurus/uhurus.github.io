@@ -1,0 +1,127 @@
+<div class="card shadow-lg">
+  <div class="card-body">
+    <div class="card-title">Déjanos tu información</div>
+    <p class="text-xs">
+      Si lo prefieres déjanos tus datos y te contactaremos en menos de 24h
+    </p>
+    <form
+      id="contact-form"
+      method="POST"
+    >
+      <fieldset class="fiedset mb-6">
+        <legend class="fieldset-legend">Nombre</legend>
+        <input
+          required
+          type="text"
+          name="name"
+          class="input w-full input-lg"
+        />
+      </fieldset>
+      <fieldset class="fiedset mb-6">
+        <legend class="fieldset-legend">Email</legend>
+        <input
+          required
+          type="email"
+          name="email"
+          class="input input-lg w-full"
+        />
+      </fieldset>
+
+      <!-- <div class="mb-6">
+              <label
+                for="service"
+                class="block text-gray-700 font-medium mb-2"
+                >¿Cómo podemos ayudarte?</label
+              >
+              <select
+                id="service"
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="marketplace"
+                  >Arquitectura para marketplace</option
+                >
+                <option value="pagos">Sistema de pagos complejo</option>
+                <option value="cumplimiento">Cumplimiento regulatorio</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div> -->
+      <fieldset class="fiedset mb-6">
+        <legend class="fieldset-legend">¿Cómo podemos ayudarte?</legend>
+        <textarea
+          required
+          rows="4"
+          name="message"
+          class="w-full textarea textarea-lg"
+        ></textarea>
+      </fieldset>
+
+      <fieldset class="fieldset mb-6">
+        <!-- <legend class="fieldset-legend">Login options</legend> -->
+        <label class="label">
+          <input
+            name="accept-terms"
+            id="accept-terms"
+            type="checkbox"
+            class="checkbox"
+          />
+          Acepto la <a href="/privacidad" class="link">política de privacidad</a>
+        </label>
+      </fieldset>
+      <button
+        disabled
+        id="submit"
+        type="submit"
+        class="btn btn-accent w-full"
+      >
+        Enviar mensaje
+        <span class="loading hidden"></span>
+        <span class="fa-check hidden"></span>
+      </button>
+    </form>
+  </div>
+</div>
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement
+  const submit = document.getElementById("submit") as HTMLButtonElement
+  const loading = submit.getElementsByClassName("loading")[0]
+  const success = submit.getElementsByClassName("fa-check")[0]
+
+  form.addEventListener("submit", async function submitForm(event: Event) {
+    event.preventDefault()
+
+    const data = new FormData(event.target as HTMLFormElement)
+    const text = [...data.entries()].reduce(
+      (result, [key, value]) => result + `${key}: ${value}\n`,
+      ""
+    )
+
+    loading.classList.toggle("hidden")
+
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    const url = "https://backsheet.dev/p/xk300r-gxbwb2"
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ text }),
+    })
+      .then(response => response.json())
+      .catch(error => {})
+
+    loading.classList.toggle("hidden")
+    success.classList.replace("hidden", "fas")
+
+    if (!response) {
+      submit.classList.replace("btn-accent", "btn-error")
+      success.classList.replace("fa-check", "fa-x")
+    }
+  })
+
+  document
+    .getElementById("accept-terms")
+    ?.addEventListener("click", function toggleSubmit(event: Event) {
+      const submit = document.querySelector("#submit") as HTMLButtonElement
+      const check = event.target as HTMLInputElement
+      submit.disabled = !check.checked
+    })
+</script>

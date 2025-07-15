@@ -1,0 +1,66 @@
+---
+import Logo from "./Logo.astro"
+---
+<footer class="bg-neutral text-neutral-content py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2">
+        <a
+          href="/"
+          class="flex items-center mb-6"
+        >
+          <Logo />
+        </a>
+        <p class="text-gray-300 max-w-md">
+          Consultoría y desarrollo técnico-estratégico para empresas con
+          necesidades Fintech.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <i class="fas fa-envelope text-gray-400 mt-1 mr-2"></i>
+            <a
+              href="mailto:hola@uhurus.com"
+              class="text-gray-300 hover:text-white transition"
+              >hola@uhurus.com</a
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-2"></i>
+            <span class="text-gray-300">Barakaldo, Bizkaia</span>
+          </li>
+        </ul>
+        <div class="mt-4 flex space-x-4">
+          <a
+            href="https://www.linkedin.com/company/uhurus"
+            class="text-gray-400 hover:text-white transition"
+          >
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+    >
+      <p class="text-gray-400 text-sm">
+        © 2025 Uhurus Software SLU. Todos los derechos reservados.
+      </p>
+      <div class="mt-4 md:mt-0">
+        <a
+          href="#"
+          class="text-gray-400 hover:text-white text-sm mr-6"
+          >Política de privacidad</a
+        >
+        <a
+          href="#"
+          class="text-gray-400 hover:text-white text-sm"
+          >Términos de servicio</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>
