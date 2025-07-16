@@ -1,0 +1,23 @@
+---
+const { question, answer, reasons } = Astro.props
+---
+
+<div class="collapse join-item bg-base-100 border border-base-300">
+  <input
+    type="radio"
+    name="my-accordion-1"
+  />
+  <div class="collapse-title font-semibold">{question}</div>
+  <div class="collapse-content text-sm">
+    <p>{answer}</p>
+    <ul class="list-disc pl-5 mt-2 space-y-1">
+      {
+        reasons.map((reason: string) => (
+          <li>
+            <Fragment set:html={reason} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

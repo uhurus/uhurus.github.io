@@ -1,0 +1,105 @@
+---
+import Question from "./Question.astro"
+
+const questions = [
+  {
+    question: "Somos una asesoría/gestoría, ¿nos sirven vuestros servicios?",
+    answer: "¡Sí! Ayudamos a profesionales como tú a:",
+    reasons: [
+      "<span class='font-bold'>Digitalizar procesos financieros</span>: Cobros recurrentes automatizados y verificación de datos con APIs bancarias.",
+      "<span class='font-bold'>Reducir trabajo manual</span>: Herramientas para reconciliaciones bancarias e informes fiscales automáticos.",
+      "<span class='font-bold'>Cumplimiento normativo</span>: Adaptación a PSD3/GDPR en gestión de datos financieros.",
+    ],
+  },
+  {
+    question: "Tenemos un marketplace, ¿cómo podéis ayudarnos?",
+    answer: "Habilitamos la arquitectura de pagos para modelos multi-partes:",
+    reasons: [
+      "<span class='font-bold'>Split payments</span>: Distribución automática de fondos entre vendedores, plataforma y socios.",
+      "<span class='font-bold'>Reconciliación contable</span>: En tiempo real para evitar discrepancias.",
+      "<span class='font-bold'>KYC integrado</span>: Validación de usuarios según normativa.",
+    ],
+  },
+  {
+    question:
+      "Somos una startup, ¿podríais resolver nuestros desafíos con pagos recurrentes?",
+    answer: "¡Absolutamente! Especializados en:",
+    reasons: [
+      "<span class='font-bold'>Pasarelas adaptativas</span>: Lógica de retry automático para primas mensuales fallidas.",
+      "<span class='font-bold'>Solvencia</span>: Gestión de fondos de clientes según regulación.",
+    ],
+  },
+  {
+    question:
+      "Gestionamos una red de franquicias con múltiples TPVs, ¿tenéis solución para nosotros?",
+    answer: "Sí, centralizamos y optimizamos tus cobros:",
+    reasons: [
+      "<span class='font-bold'>Unificación de pagos</span>: Reconciliación automática entre TPVs físicos/online.",
+      "<span class='font-bold'>Negociación agregada</span>: Reducción de comisiones bancarias al operar como red.",
+      "<span class='font-bold'>Gestión centralizada</span>: Gestión centralizada de fondos y liquidaciones automáticas a cuenta.",
+    ],
+  },
+  // {
+  //   question:
+  //     "¿Pueden ayudar a nuestra cooperativa agrícola con pagos internacionales?",
+  //   answer: "Es uno de nuestros fuertes:",
+  //   reasons: [
+  //     "<span class='font-bold'>Conversión multi-divisa</span>: Pagos en USD/EUR con tipos preferentes.",
+  //     "<span class='font-bold'>Liquidaciones automáticas</span>: A proveedores según cosechas vendidas.",
+  //     "<span class='font-bold'>SEPA Cooperativo</span>: Adeudos directos a socios con validación regulatoria.",
+  //   ],
+  // },
+  // {
+  //   question:
+  //     "Nuestro negocio ofrece financiación in-house, ¿tienen herramientas para esto?",
+  //   answer: "Desarrollamos sistemas a medida:",
+  //   reasons: [
+  //     "<span class='font-bold'>Scoring interno</span>: Alertas tempranas de impago en planes fraccionados.",
+  //     "<span class='font-bold'>Contratos digitales</span>: Generación automática vinculada a cuotas.",
+  //     "<span class='font-bold'>Verificación ASNEF</span>: Integración con bases de datos crediticias.",
+  //   ],
+  // },
+
+  {
+    question:
+      "Trabajamos en un sector tradicional (ej: retail), ¿por qué necesitaríamos Fintech?",
+    answer: "Podemos modernizar tus operaciones con:",
+    reasons: [
+      "<span class='font-bold'>Sistemas de cobro unificados</span>: Combina terminales físicos, links de pago y pasarelas online en una única reconciliación.",
+      "<span class='font-bold'>Conciliación automatizada</span>: Automatiza tus cobros o pagos a pvoeedores.",
+      "<span class='font-bold'>Gestión de tesorería predictiva</span>: Proyección de flujos de caja basada en datos históricos.",
+    ],
+  },
+
+  {
+    question: "Somos una startup Fintech, ¿qué valor nos podéis aportar?",
+    answer: "Te podemos acompañar en:",
+    reasons: [
+      "<span class='font-bold'>Diseño técnico-regulatorio</span>: Desde el MVP hasta la escalabilidad, asegurando cumplimiento con PSD2/PSD3.",
+      "<span class='font-bold'>Conectividad bancaria</span>: Integración con APIs de entidades financieras y optimización de costes transaccionales.",
+      "<span class='font-bold'>Automatización de procesos</span>: Due diligence, reporting regulatorio y gestión de chargebacks.",
+    ],
+  },
+  {
+    question: "Nuestro proyecto es muy específico, ¿hacen soluciones a medida?",
+    answer: "¡Absolutamente! Ejemplos de proyectos personalizados:",
+    reasons: [
+      "<span class='font-bold'>Programas de lealtad</span>: Lógica de puntos y pagos automáticos a partners.",
+      "<span class='font-bold'>Plataformas B2B</span>: Facturación electrónica con descuentos por volumen y multi-divisas.",
+      "<span class='font-bold'>Modelos de suscripción</span>: Cobros recurrentes con gestión de fallos integrada.",
+    ],
+  },
+]
+---
+
+<div class="join join-vertical w-full">
+  {
+    questions.map(({ question, answer, reasons }) => (
+      <Question
+        question={question}
+        answer={answer}
+        reasons={reasons}
+      />
+    ))
+  }
+</div>

@@ -1,6 +1,7 @@
 ---
 import ContactForm from "../components/ContactForm.astro"
-import GoogleAppoinment from "../components/GoogleAppoinment.astro"
+import FrequentQuestions from "../components/FAQ/FrequentQuestions.astro"
+
 import InfoCard from "../components/layout/InfoCard.astro"
 import Layout from "../layouts/Layout.astro"
 import "../styles/app.css"
@@ -75,7 +76,7 @@ import "../styles/app.css"
 
       <div class="grid md:grid-cols-3 gap-8">
         <InfoCard
-          title="Marketplaces & Plataformas"
+          title="Plataformas"
           description="Diseñamos la arquitectura de pagos para modelos multi-partes (split payments, reconciliación automática...)."
           icon="fa-robot"
         >
@@ -314,7 +315,7 @@ import "../styles/app.css"
               >
                 <i class="fas fa-user-friends text-accent"></i>
               </div>
-              <h3 class="card-title ml-2">Programa de Referidos</h3>
+              <h3 class="card-title ml-2">Plataformas multi-usuario</h3>
             </div>
             <p class="text-neutral mb-4">
               Sistema de comisiones multi-nivel con pagos automáticos.
@@ -348,92 +349,101 @@ import "../styles/app.css"
           Analicemos tu caso
         </a>
       </div>
+      <div class="max-w-5xl mx-auto my-8">
+        <FrequentQuestions />
+      </div>
     </div>
-  </section>
 
-  <section class="py-20 bg-accent">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        No dejes que la complejidad frene tu innovación
-      </h2>
-      <p class="text-xl mb-8 opacity-90">
-        En uhurus convertimos los desafíos técnicos y regulatorios en las bases
-        de tu ventaja competitiva.
-      </p>
-      <a
-        href="#contacto"
-        class="btn btn-lg"
-      >
-        Habla con nosotros
-      </a>
-    </div>
-  </section>
+    <section class="py-20 bg-accent my-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          No dejes que la complejidad frene tu innovación
+        </h2>
+        <p class="text-xl mb-8 opacity-90">
+          En uhurus convertimos los desafíos técnicos y regulatorios en las
+          bases de tu ventaja competitiva.
+        </p>
+        <a
+          href="#contacto"
+          class="btn btn-lg"
+        >
+          Habla con nosotros
+        </a>
+      </div>
+    </section>
 
-  <section
-    id="contacto"
-    class="py-20"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex gap-12">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Hablemos de tu proyecto
-          </h2>
-          <p class="text-xl text-neutral mb-8">
-            Cuéntanos sobre tus desafíos y te propondremos un enfoque
-            técnico-estratégico a medida.
-          </p>
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent mt-1">
-                <i class="fas fa-envelope text-xl"></i>
+    <section
+      id="contacto"
+      class="py-20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex gap-12">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+              Hablemos de tu proyecto
+            </h2>
+            <p class="text-xl text-neutral mb-8">
+              Cuéntanos sobre tus desafíos y te propondremos un enfoque
+              técnico-estratégico a medida.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 text-accent mt-1">
+                  <i class="fas fa-envelope text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium">Email</h4>
+                  <p class="text-neutral text-sm">hola@uhurus.com</p>
+                </div>
               </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium">Email</h4>
-                <p class="text-neutral text-sm">hola@uhurus.com</p>
+              <div class="flex items-start">
+                <div class="flex-shrink-0 text-accent mt-1">
+                  <i class="fas fa-map-marker-alt text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium">Ubicación</h4>
+                  <p class="text-neutral text-sm">Barakaldo, Bizkaia</p>
+                </div>
               </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent mt-1">
-                <i class="fas fa-map-marker-alt text-xl"></i>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium">Ubicación</h4>
-                <p class="text-neutral text-sm">Barakaldo, Bizkaia</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0 text-accent mt-1">
-                <i class="fas fa-calendar-check text-xl"></i>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-medium">Llamada exploratoria</h4>
-                <p class="text-neutral text-sm mb-2">
-                  Hablamos sobre tu necesidad sin compromiso
-                </p>
-                <GoogleAppoinment label="Reservar" />
+              <div class="flex items-start">
+                <div class="flex-shrink-0 text-accent mt-1">
+                  <i class="fas fa-calendar-check text-xl"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium">Llamada exploratoria</h4>
+                  <p class="text-neutral text-sm mb-2">
+                    Hablamos sobre tu necesidad sin compromiso
+                  </p>
+                  <a
+                    href="https://calendar.app.google/S7ywUCJRonwUAQi5A"
+                    target="_blank"
+                    class="text-neutral"
+                  >
+                    Agendar <i class="fas fa-arrow-right ml-2"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="md:w-1/2">
-          <ContactForm />
+          <div class="md:w-1/2">
+            <ContactForm />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    // Smooth scrolling for all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault()
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth",
+    <script>
+      // Smooth scrolling for all links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault()
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          })
+          // Close mobile menu if open
+          document.getElementById("mobile-menu")?.classList.add("hidden")
         })
-        // Close mobile menu if open
-        document.getElementById("mobile-menu")?.classList.add("hidden")
       })
-    })
-  </script>
+    </script>
+  </section>
 </Layout>

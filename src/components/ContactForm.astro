@@ -1,4 +1,4 @@
-<div class="card shadow-lg">
+<div class="card shadow-lg bg-base-100">
   <div class="card-body">
     <div class="card-title">Déjanos tu información</div>
     <p class="text-xs">
@@ -57,7 +57,6 @@
       </fieldset>
 
       <fieldset class="fieldset mb-6">
-        <!-- <legend class="fieldset-legend">Login options</legend> -->
         <label class="label">
           <input
             name="accept-terms"
@@ -65,7 +64,12 @@
             type="checkbox"
             class="checkbox"
           />
-          Acepto la <a href="/privacidad" class="link">política de privacidad</a>
+          Acepto la <a
+            target="_blank"
+            href="/legal/politica-privacidad"
+            class="link"
+            >Política de privacidad</a
+          >
         </label>
       </fieldset>
       <button
@@ -78,14 +82,22 @@
         <span class="loading hidden"></span>
         <span class="fa-check hidden"></span>
       </button>
+      <label class="text-error text-xs ml-2 hidden"
+        >Ha habido un error en el envío del formulario.</label
+      >
     </form>
   </div>
 </div>
 <script>
   const form = document.getElementById("contact-form") as HTMLFormElement
   const submit = document.getElementById("submit") as HTMLButtonElement
-  const loading = submit.getElementsByClassName("loading")[0]
-  const success = submit.getElementsByClassName("fa-check")[0]
+  const loading = submit
+    .getElementsByClassName("loading")
+    .item(0) as HTMLElement
+  const success = submit
+    .getElementsByClassName("fa-check")
+    .item(0) as HTMLElement
+  const error = form.getElementsByClassName("text-error").item(0) as HTMLElement
 
   form.addEventListener("submit", async function submitForm(event: Event) {
     event.preventDefault()
@@ -103,6 +115,7 @@
     const url = "https://backsheet.dev/p/xk300r-gxbwb2"
     const response = await fetch(url, {
       method: "POST",
+      credentials: "omit",
       body: JSON.stringify({ text }),
     })
       .then(response => response.json())
@@ -114,6 +127,7 @@
     if (!response) {
       submit.classList.replace("btn-accent", "btn-error")
       success.classList.replace("fa-check", "fa-x")
+      error?.classList.toggle("hidden")
     }
   })
 
