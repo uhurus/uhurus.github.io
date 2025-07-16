@@ -10,9 +10,6 @@
     <clipPath id="a">
       <path d="M0 0h48v50.25H0Z" clip-rule="evenodd" />
     </clipPath>
-    <bx:export>
-      <bx:file format="svg" path="Sin título.svg" />
-    </bx:export>
   </defs>
   <g clip-path="url(#a)" transform="matrix(0.937569, 0, 0, 0.933714, -9.367312, -10.320319)"
     style="transform-origin: -1.63344px -0.679681px;">
