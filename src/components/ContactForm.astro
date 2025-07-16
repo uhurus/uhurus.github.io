@@ -112,11 +112,11 @@
 
     await new Promise(resolve => setTimeout(resolve, 500))
 
-    const url = "https://backsheet.dev/p/xk300r-gxbwb2"
+    const url = new URL(
+      "https://backsheet.dev/p/xk300r-gxbwb2?text=" + encodeURIComponent(text)
+    )
     const response = await fetch(url, {
-      method: "POST",
       credentials: "omit",
-      body: JSON.stringify({ text }),
     })
       .then(response => response.json())
       .catch(error => {})
