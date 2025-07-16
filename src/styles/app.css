@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin '@tailwindcss/typography';
+
 .quicksand {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
