@@ -98,9 +98,11 @@
     .getElementsByClassName("fa-check")
     .item(0) as HTMLElement
   const error = form.getElementsByClassName("text-error").item(0) as HTMLElement
+  let sent = false
 
   form.addEventListener("submit", async function submitForm(event: Event) {
     event.preventDefault()
+    if (sent) return
 
     const data = new FormData(event.target as HTMLFormElement)
     const text = [...data.entries()].reduce(
@@ -123,12 +125,16 @@
 
     loading.classList.toggle("hidden")
     success.classList.replace("hidden", "fas")
+    const textElement = submit.childNodes.item(0) as HTMLElement
 
     if (!response) {
+      textElement.textContent = "Ha habido un error"
       submit.classList.replace("btn-accent", "btn-error")
       success.classList.replace("fa-check", "fa-x")
       error?.classList.toggle("hidden")
-    }
+    } else textElement.textContent = "Enviado"
+
+    return sent = true
   })
 
   document
