@@ -42,7 +42,7 @@ import Logo from "./Logo.astro"
         >Contactar</a
       >
       <div class="md:hidden flex items-center">
-        <button id="menu-btn">
+        <button id="menu-toggler">
           <i class="fas fa-bars text-neutral-content text-xl"></i>
         </button>
       </div>
@@ -82,10 +82,13 @@ import Logo from "./Logo.astro"
 </header>
 
 <script>
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLElement
+
   function handleClick() {
-    document.getElementById("mobile-menu").classList.toggle("h-65")
+    mobileMenu.classList.toggle("h-65")
   }
   // Mobile menu toggle
-
-  document.getElementById("menu-btn").addEventListener("click", handleClick)
+  document
+    .getElementById("menu-toggler")
+    ?.addEventListener("click", handleClick)
 </script>
