@@ -20,14 +20,14 @@
   --color-base-100: oklch(100% 0 0);
   --color-base-200: #f3f4f6;
   --color-base-300: #e5e7eb;
-  --color-base-content: oklch(21% 0.006 285.885);
+  --color-base-content: #101828;
   --color-primary: #006b5e;
   --color-primary-content: #374151;
   --color-secondary: #339e89;
   --color-secondary-content: oklch(100% 0 0);
   --color-accent: #00d492;
-  --color-accent-content: #374151;
-  --color-neutral: #364153;
+  --color-accent-content: #101828;
+  --color-neutral: #101828;
   --color-neutral-content: oklch(100% 0 0);
   --color-info: #1d9cff;
   --color-info-content: oklch(29% 0.066 243.157);
