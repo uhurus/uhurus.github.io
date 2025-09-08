@@ -17,10 +17,10 @@ const innerHTML = addAttributesToInnerHTMLString(logo, {
   width: "40",
   ...attributes,
 })
-const { size = "2xl" } = Astro.props
+const { size = "text-2xl" } = Astro.props
 ---
 
-<div class={`text-${size} flex items-center my-2`}>
+<div class={`${size} flex items-center my-2`}>
   <Fragment set:html={innerHTML} />
   <p class="quicksand font-bold text-neutral-content">uhurus</p>
 </div>
