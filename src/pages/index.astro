@@ -8,54 +8,35 @@ import "../styles/app.css"
 ---
 
 <Layout>
-  <section class="bg-neutral py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex items-center">
-        <div class="md:w-2/3 mx-auto mb-10 md:mb-0">
-          <h1
-            class="text-neutral-content text-4xl md:text-5xl font-semibold leading-tight mb-6"
-          >
-            Transforma los <span class="text-accent font-bold"
-              >retos financieros</span
-            >
-            en tu ventaja competitiva
-          </h1>
-          <p class="text-xl text-neutral-content mb-8">
-            ¿Sientes que tus finanzas frenan el ritmo de tu negocio? Te ayudamos
-            a ponerlas a la altura del resto de tu empresa, convirtiendo
-            obligaciones en oportunidades.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contacto"
-              class="btn btn-accent btn-lg"
-            >
-              Habla con nosotros
-            </a>
-            <a
-              href="#servicios"
-              class="btn btn-lg"
-            >
-              Ver casos de uso
-            </a>
-          </div>
-        </div>
+  <main
+    class="relative text-neutral-content h-screen flex items-center justify-center text-center px-4 overflow-hidden"
+  >
+    <div class="absolute inset-0 bg-neutral z-0"></div>
+    <div class="relative z-10 max-w-6xl mx-auto flex flex-col gap-4">
+      <h1 class="text-5xl quicksand md:text-6xl font-bold mb-15">
+        Transformamos los <span class="text-accent">retos financieros</span>
+        en tu ventaja competitiva a través de la tecnología
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+        Combinamos <span class="text-accent font-bold">experiencia técnica</span
+        > y conocimiento regulatorio para construir soluciones que impulsan el crecimiento.
+      </p>
+      <div class="mt-8 flex justify-center space-x-4">
+        <a
+          href="#contacto"
+          class="btn btn-accent btn-lg"
+        >
+          Habla con nosotros
+        </a>
+        <a
+          href="#servicios"
+          class="btn btn-lg"
+        >
+          Nuestros servicios
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- <section class="py-12 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-gray-500 mb-8">Confían en nosotros:</p>
-      <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
-        <div class="text-gray-400 text-4xl font-bold opacity-70">PSD2</div>
-        <div class="text-gray-400 text-4xl font-bold opacity-70">SEPA</div>
-        <div class="text-gray-400 text-4xl font-bold opacity-70">VISA</div>
-        <div class="text-gray-400 text-4xl font-bold opacity-70">GDPR</div>
-        <div class="text-gray-400 text-4xl font-bold opacity-70">SWIFT</div>
-      </div>
-    </div>
-  </section> -->
+  </main>
 
   <section
     id="servicios"
@@ -63,18 +44,90 @@ import "../styles/app.css"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Soluciones para <span class="text-accent text-primary"
-            >estructuras financieras complejas</span
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">
+          Soluciones tecnológicas de <span
+            class="text-accent quicksand bg-neutral px-2 py-1 rounded-box"
+            >alto impacto<span class="animate-[pulse_1s_infinite]">_</span
+            ></span
           >
         </h2>
         <p class="text-xl text-neutral max-w-3xl mx-auto">
-          Especializados en modelos innovadores que requieren manejo avanzado de
-          pagos y cumplimiento.
+          Nos especializamos en construir la base tecnológica de tu negocio para
+          que puedas centrarte en crecer
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
+        <InfoCard
+          title="Cobros y pagos a medida"
+          description="Diseñamos y desarrollamos plataformas seguras y escalables para automatizar la gestión de pagos y cobros."
+          icon="fa-wallet"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Alto volumen transaccional</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>eCommerce</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Marketplace</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+
+        <InfoCard
+          title="Portales de clientes"
+          description="Creamos portales de autoservicio para tus clientes que simplifican el acceso a la información. Liberando tiempo y recursos para tu equipo."
+          icon="fa-user"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Automatización</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Conciliación</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+
+        <InfoCard
+          title="APIs Bancarias & Pagos"
+          description="Conectamos tu plataforma con esquemas de pago (VISA, SEPA) y APIs bancarias bajo arquitecturas escalables."
+          icon="fa-project-diagram"
+        >
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Integración con entidades financieras</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+              <span>Optimización de costes transaccionales</span>
+            </li>
+          </ul>
+          <div class="card-actions">
+            <a href="#contacto">
+              Saber más <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </InfoCard>
+
         <InfoCard
           title="Plataformas"
           description="Diseñamos la arquitectura de pagos para modelos multi-partes (split payments, reconciliación automática...)."
@@ -118,28 +171,6 @@ import "../styles/app.css"
             </a>
           </div>
         </InfoCard>
-
-        <InfoCard
-          title="APIs Bancarias & Pagos"
-          description="Conectamos tu plataforma con esquemas de pago (VISA, SEPA) y APIs bancarias bajo arquitecturas escalables."
-          icon="fa-project-diagram"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Integración con entidades financieras</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Optimización de costes transaccionales</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
       </div>
     </div>
   </section>
@@ -153,12 +184,21 @@ import "../styles/app.css"
       <div class="md:flex items-center gap-12">
         <div class="">
           <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Amplia experiencia <span class="text-accent ">Fintech</span>
+            Amplia experiencia <span
+              class="text-accent quicksand bg-neutral px-2 py-1 rounded-box"
+              >Fintech<span class="animate-[pulse_1s_infinite]">_</span>
+            </span>
           </h2>
-          <p class="text-xl text-neutral mb-8">
+          <p class="text-xl text-neutral">
             Con +10 años liderando innovación en empresas fintech y entidades de
             pago reguladas, hemos enfrentado los mismos desafíos que tu
             proyecto.
+          </p>
+          <p class="text-xl text-neutral mt-4 mb-8">
+            Nuestra misión es cerrar la brecha entre la complejidad regulatoria
+            y la oportunidad tecnológica. No solo asesoramos, sino que diseñamos
+            y construimos la infraestructura de software que permite a las
+            empresas líderes innovar con total seguridad.
           </p>
           <div class="space-y-6">
             <div class="flex">
@@ -211,8 +251,12 @@ import "../styles/app.css"
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Metodología <span class="text-accent">ágil</span> y centrada en <span
-            class="text-accent">resultados</span
+          Metodología <span
+            class="text-accent quicksand bg-neutral px-2  rounded-box"
+            >ágil</span
+          > y centrada en <span
+            class="text-accent bg-neutral quicksand px-2 rounded-box"
+            >resultados</span
           >
         </h2>
         <p class="text-xl text-neutral max-w-3xl mx-auto">
@@ -269,7 +313,10 @@ import "../styles/app.css"
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Casos de uso para <span class="text-accent">modelos complejos</span>
+          Casos de uso para <br /><span
+            class="text-accent quicksand bg-neutral px-2 py rounded-box"
+            >modelos complejos</span
+          >
         </h2>
         <p class="text-xl text-neutral max-w-3xl mx-auto">
           Hemos resuelto desafíos técnicos en proyectos innovadores:
@@ -344,7 +391,7 @@ import "../styles/app.css"
         </p>
         <a
           href="#contacto"
-          class="btn btn-lg btn-accent"
+          class="btn btn-lg btn-accent text-gray-900"
         >
           Analicemos tu caso
         </a>
@@ -360,14 +407,14 @@ import "../styles/app.css"
           No dejes que la complejidad frene tu innovación
         </h2>
         <p class="text-xl mb-8 opacity-90">
-          En uhurus convertimos los desafíos técnicos y regulatorios en las
-          bases de tu ventaja competitiva.
+          Hablemos de cómo nuestra experiencia puede construir la solución
+          tecnológica que necesitas para competir y crecer.
         </p>
         <a
           href="#contacto"
-          class="btn btn-lg"
+          class="btn btn-lg btn-neutral"
         >
-          Habla con nosotros
+          Hablemos de tu proyecto
         </a>
       </div>
     </section>
