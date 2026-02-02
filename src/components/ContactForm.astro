@@ -8,6 +8,11 @@
       id="contact-form"
       method="POST"
     >
+      <input
+        type="hidden"
+        name="origin"
+        value="uhurus.com"
+      />
       <fieldset class="fiedset mb-6">
         <legend class="fieldset-legend">Nombre</legend>
         <input
@@ -78,7 +83,7 @@
       <button
         disabled
         id="submit"
-        type="submit"
+        type="submit"0
         class="btn btn-accent w-full"
       >
         Enviar mensaje
@@ -92,8 +97,8 @@
   </div>
 </div>
 <script>
-  const form = document.getElementById("contact-form") as HTMLFormElement
-  const submit = document.getElementById("submit") as HTMLButtonElement
+  const form    = document.getElementById("contact-form") as HTMLFormElement
+  const submit  = document.getElementById("submit") as HTMLButtonElement
   const loading = submit
     .getElementsByClassName("loading")
     .item(0) as HTMLElement
@@ -123,8 +128,8 @@
     const response = await fetch(url, {
       credentials: "omit",
     })
-      .then(response => response.json())
-      .catch(error => {})
+    .then(response => response.json())
+    .catch(error => {})
 
     loading.classList.toggle("hidden")
     success.classList.replace("hidden", "fas")
