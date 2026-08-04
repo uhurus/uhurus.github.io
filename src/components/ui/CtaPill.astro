@@ -1,0 +1,49 @@
+---
+interface Props {
+  href        : string
+  label       : string
+  variant?    : "primary" | "outline"
+  target?     : string
+  className?  : string
+  arrowClass? :  string
+  trackClick? : string
+}
+
+const {
+  href = "https://calendar.app.google/S7ywUCJRonwUAQi5A",
+  label,
+  variant = "primary",
+  target,
+  className = "",
+  arrowClass,
+  trackClick,
+} = Astro.props
+
+const arrow =
+  arrowClass ??
+  (variant === "primary"
+    ? "flex h-11 w-11 items-center justify-center rounded-full bg-ink text-live"
+    : "flex h-8 w-8 items-center justify-center rounded-full bg-live text-ink text-sm")
+---
+
+<a
+  href={href}
+  target={target}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
+  data-track-click={trackClick}
+  class:list={[
+    variant === "primary"
+      ? "inline-flex items-center gap-3 rounded-full bg-live pl-6 pr-2 py-2 transition hover:brightness-110"
+      : "inline-flex items-center gap-3 rounded-full border border-live/40 pl-5 pr-1.5 py-1.5 hover:border-live transition-colors",
+    className,
+  ]}
+>
+  <span
+    class={variant === "primary"
+      ? "text-ink font-semibold"
+      : "text-sm text-base-content/70 tracking-label-sm"}
+  >
+    {label}
+  </span>
+  <span class={arrow}> → </span>
+</a>

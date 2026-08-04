@@ -1,0 +1,34 @@
+---
+import IconChip from "../ui/IconChip.astro"
+import Card from "../ui/Card.astro"
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+
+interface Props {
+  audience: string[]
+}
+
+const { audience } = Astro.props
+---
+
+{
+  audience.length > 0 && (
+    <div
+      class="mt-20"
+      data-appear
+    >
+      <SectionEyebrow label="para quién es" />
+      <div class="grid md:grid-cols-3 gap-4">
+        {
+          audience.map(item => (
+            <Card className="flex items-start gap-5">
+              <IconChip icon="fa-check" size="sm" className="mt-1.5" />
+              <p class="text-base text-base-content/70 leading-relaxed">
+                {item}
+              </p>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  )
+}

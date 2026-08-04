@@ -1,0 +1,162 @@
+/* ────────────────────────────────────────────
+   Componentes — panel, pestañas, gradientes y separadores
+   ──────────────────────────────────────────── */
+
+/* Panel de instrumento — cabecera con dot de estado */
+.panel {
+  background: var(--color-ink);
+  border: 1px solid var(--color-edge);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--color-edge);
+}
+
+.panel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+/* Lengüeta de paso — pestaña del ciclo en la status rail */
+.tab-phase {
+  font-family: var(--font-instrument);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-edge);
+  border-bottom: none;
+  padding: 0.5rem 1.1rem 0.4rem;
+  color: color-mix(
+    in oklab,
+    var(--tab-color, var(--color-paper)) 45%,
+    transparent
+  );
+  background: var(--color-ink);
+  transition:
+    color 300ms ease,
+    background 300ms ease;
+}
+
+.tab-phase[data-state="active"] {
+  color: var(--tab-color, var(--color-paper));
+  background: var(--color-surface);
+  border-color: color-mix(
+    in oklab,
+    var(--tab-color, var(--color-paper)) 30%,
+    var(--color-edge)
+  );
+}
+
+.tab-phase[data-state="done"] {
+  color: color-mix(
+    in oklab,
+    var(--tab-color, var(--color-paper)) 80%,
+    transparent
+  );
+  background: color-mix(
+    in oklab,
+    var(--tab-color, var(--color-paper)) 8%,
+    var(--color-ink)
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--tab-color, var(--color-paper)) 20%,
+    var(--color-edge)
+  );
+}
+
+/* Texto en gradiente (verde live) — la "palabra encendida" */
+.text-grad {
+  background: linear-gradient(
+    120deg,
+    var(--color-live),
+    var(--color-live-bright)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Rejilla de hairlines al fondo de secciones (hero, etc.) */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  mask-image: radial-gradient(
+    ellipse 75% 70% at 50% 40%,
+    #000 30%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Panel enmarcado — marco con hairline interior (bento) */
+.frame {
+  border: 1px solid var(--color-edge);
+  border-radius: 1rem;
+  background: var(--color-edge);
+  padding: 1px;
+  overflow: hidden;
+}
+
+/* Celda del marco — tarjeta que rellena cada hueco */
+.cell {
+  position: relative;
+  display: block;
+  background: var(--color-ink);
+  padding: 2rem;
+  transition: background-color 300ms ease;
+}
+.cell:hover {
+  background: var(--color-surface);
+}
+@media (min-width: 48rem) {
+  .cell {
+    padding: 2.5rem;
+  }
+}
+
+/* Interior de celda — cabecera con icono/fases y contenido apilado */
+.cell-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cell-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+/* Separador brow entre secciones */
+.brow {
+  height: 2rem;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.brow > span {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  background: var(--color-ink);
+  border-radius: 0 0 9999px 9999px;
+}
+
+.brow > i {
+  flex: 1;
+  height: 2rem;
+  background: var(--color-ink);
+}

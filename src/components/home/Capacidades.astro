@@ -1,0 +1,89 @@
+---
+import PhaseTags from "../ui/PhaseTags.astro"
+import SectionHeading from "../ui/SectionHeading.astro"
+
+interface Item {
+  title: string
+  description: string
+  href?: string
+  label?: string
+  featured?: boolean
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  items?: Item[]
+}
+
+const { eyebrow, h2, intro, items = [] } = Astro.props
+
+// Tokens de presentación por posición — nunca en datos.
+const cardPlacements = [
+  "md:col-start-1 md:row-start-1",
+  "md:col-start-1 md:row-start-2",
+  "md:col-start-2 md:row-start-1 md:row-span-2",
+  "md:col-start-1 md:col-span-2 md:row-start-3",
+]
+
+// Las fases viven en `label` ("plan · code · ship") — las separamos para PhaseTags.
+const toPhases = (label?: string): string[] =>
+  label
+    ? label
+        .split(" · ")
+        .map(step => step.trim())
+        .filter(Boolean)
+    : []
+---
+
+<section class="section bg-base-100">
+  <div class="shell">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={h2}
+      intro={intro}
+      containerClass="max-w-2xl mx-auto text-center mb-16"
+      h2Class="mb-5"
+    />
+
+    <!-- Panel enmarcado -->
+    <div
+      class="frame"
+      data-appear
+    >
+      <div class="grid md:grid-cols-2 gap-px">
+        {
+          items.map((item, index) => (
+            <a
+              href={item.href ?? "/servicios"}
+              data-track-click={`home:capacidades:${index}`}
+              class:list={[
+                "cell group",
+                cardPlacements[index % cardPlacements.length],
+                item.featured && "flex flex-col justify-between",
+              ]}
+            >
+              <div class="cell-inner">
+                <div class="cell-head">
+                  <span
+                    class="h-1 w-8 origin-left rounded-full bg-live/60 opacity-0 transition-all duration-300 group-hover:scale-x-200 group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                  <PhaseTags phases={toPhases(item.label)} />
+                </div>
+
+                <h3 class="h3 md:text-3xl mb-3">
+                  {item.title}
+                </h3>
+                <p class="text-base-content/70 leading-relaxed max-w-sm">
+                  {item.description}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

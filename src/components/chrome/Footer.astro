@@ -1,0 +1,138 @@
+---
+import Logo from "./Logo.astro"
+---
+
+<footer class="bg-base-200 border-t border-edge">
+  <div class="shell py-16 md:py-20">
+    <div class="grid gap-12 md:gap-8 md:grid-cols-12">
+      <div class="md:col-span-5 lg:col-span-4">
+        <a
+          href="/"
+          aria-label="uhurus — inicio"
+          class="inline-block mb-6"
+        >
+          <Logo />
+        </a>
+        <p class="text-sm text-base-content/60 leading-relaxed max-w-md">
+          Laboratorio de producto e innovación. Diseño y desarrollo de
+          soluciones digitales de alto impacto en toda España.
+        </p>
+      </div>
+
+      <nav
+        class="md:col-span-4"
+        aria-label="Servicios"
+      >
+        <h3 class="eyebrow mb-5">// servicios</h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href="/servicios/diseno-de-producto"
+              class="link-dim"
+              data-track-click="footer:service:diseno-de-producto"
+              >Diseño de producto</a
+            >
+          </li>
+          <li>
+            <a
+              href="/servicios/prueba-de-concepto"
+              class="link-dim"
+              data-track-click="footer:service:prueba-de-concepto"
+              >Prueba de concepto</a
+            >
+          </li>
+          <li>
+            <a
+              href="/servicios/desarrollo-mvp"
+              class="link-dim"
+              data-track-click="footer:service:desarrollo-mvp"
+              >Desarrollo MVP</a
+            >
+          </li>
+          <li>
+            <a
+              href="/servicios/desarrollo-completo"
+              class="link-dim"
+              data-track-click="footer:service:desarrollo-completo"
+              >Desarrollo completo</a
+            >
+          </li>
+          <li>
+            <a
+              href="/servicios/iteracion"
+              class="link-dim"
+              data-track-click="footer:service:iteracion"
+              >Iteración post-lanzamiento</a
+            >
+          </li>
+          <li>
+            <a
+              href="/servicios/fintech"
+              class="link-dim"
+              data-track-click="footer:service:fintech"
+              >Fintech</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-3 lg:col-span-4">
+        <h3 class="eyebrow mb-5">// contacto</h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href="mailto:hola@uhurus.com"
+              class="link-dim"
+              data-track-click="footer:email"
+              >hola@uhurus.com</a
+            >
+          </li>
+          <li class="text-base-content/60">Barakaldo, Bizkaia</li>
+          <li>
+            <a
+              aria-label="LinkedIn de uhurus"
+              href="https://www.linkedin.com/company/uhurus"
+              class="inline-flex items-center gap-2 text-base-content/60 hover:text-live transition-colors"
+              data-track-click="footer:linkedin"
+            >
+              <i
+                class="fa-brands fa-linkedin-in text-sm"
+                aria-hidden="true"
+              ></i>
+              <span>uhurus</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-edge mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-base-content/40 text-xs">
+        © {new Date().getFullYear()} Uhurus Software SLU. Todos los derechos
+        reservados.
+      </p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href="/legal/politica-cookies"
+          class="text-base-content/40 hover:text-base-content text-xs transition"
+          data-track-click="footer:legal:cookies"
+          >Política de cookies</a
+        >
+        <a
+          href="/legal/politica-privacidad"
+          class="text-base-content/40 hover:text-base-content text-xs transition"
+          data-track-click="footer:legal:privacidad"
+          >Política de privacidad</a
+        >
+        <a
+          href="/legal/aviso-legal"
+          class="text-base-content/40 hover:text-base-content text-xs transition"
+          data-track-click="footer:legal:aviso-legal"
+          >Aviso legal</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

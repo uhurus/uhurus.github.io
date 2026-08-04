@@ -1,0 +1,45 @@
+/* ────────────────────────────────────────────
+   Layout — contenedores, secciones y navegación
+   ──────────────────────────────────────────── */
+
+@layer components {
+  .shell {
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 40rem) {
+    .shell {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 64rem) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    position: relative;
+    overflow: hidden;
+    padding-block: 7rem;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+    letter-spacing: 0.48px;
+    transition: color 300ms ease;
+  }
+  .nav-link:hover {
+    color: var(--color-base-content);
+  }
+
+  .link-dim {
+    color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+    transition: color 300ms ease;
+  }
+  .link-dim:hover {
+    color: var(--color-base-content);
+  }
+}

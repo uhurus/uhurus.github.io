@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/Legal.astro
-title: uhurus | Aviso legal
+title: uhurus | Aviso legal
+description: "Aviso legal de uhurus: información sobre la titularidad del sitio, condiciones de uso y propiedad intelectual."
 ---
 
 # AVISO LEGAL

@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/Legal.astro
-title: uhurus | Aviso legal
+title: uhurus | Política de cookies
+description: "Política de cookies de uhurus: qué cookies usamos, para qué y cómo gestionarlas."
 ---
 
 # POLÍTICA DE COOKIES

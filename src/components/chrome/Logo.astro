@@ -12,7 +12,7 @@ function addAttributesToInnerHTMLString(
 }
 const { ...attributes } = Astro.props
 const innerHTML = addAttributesToInnerHTMLString(logo, {
-  style: "color: var(--color-neutral);",
+  style: "color: var(--color-base-100);",
   height: "40",
   width: "40",
   ...attributes,
@@ -22,5 +22,5 @@ const { size = "text-2xl" } = Astro.props
 
 <div class={`${size} flex items-center my-2`}>
   <Fragment set:html={innerHTML} />
-  <p class="quicksand font-bold text-neutral-content">uhurus</p>
+  <p class="quicksand font-bold text-base-content">uhurus</p>
 </div>

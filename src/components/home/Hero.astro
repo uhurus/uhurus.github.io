@@ -1,0 +1,92 @@
+---
+import CtaPill from "../ui/CtaPill.astro"
+import CycleCard from "./CycleCard.astro"
+
+interface CycleStep {
+  label: string
+  title: string
+  description: string
+  tasks: string[]
+}
+
+interface Cta {
+  label: string
+  href: string
+  target?: string
+}
+
+interface Props {
+  eyebrow?: string
+  h1Top?: string
+  h1Highlight?: string
+  sub?: string
+  primaryCta?: Cta
+  secondaryCta?: Cta
+  cycle?: { steps: CycleStep[] }
+}
+
+const { eyebrow, h1Top, h1Highlight, sub, primaryCta, secondaryCta, cycle } = Astro.props
+---
+
+<main
+  class="relative text-base-content min-h-screen flex items-center overflow-hidden pt-28 pb-24 px-4"
+>
+  <!-- Fondo: rejilla de hairlines + ambientes -->
+  <div class="absolute inset-0 bg-base-100 z-0" aria-hidden="true">
+    <div class="hero-grid"></div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_20%_90%,rgba(217,154,43,0.05),transparent_70%)]"
+    ></div>
+  </div>
+
+  <div
+    class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-20 items-center w-full"
+  >
+    <!-- Copy -->
+    <div class="flex flex-col items-start gap-7" data-appear>
+      <span
+        class="inline-flex items-center gap-2.5 rounded-full border border-live/30 bg-live/5 px-4 py-1.5 text-xs font-medium tracking-[0.12em] uppercase text-live"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-live opacity-60"
+          ></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-live"></span>
+        </span>
+        {eyebrow}
+      </span>
+
+      <h1
+        class="font-display text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-display"
+      >
+        {h1Top}
+        <span class="block text-grad">{h1Highlight}</span>
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl text-base-content/70 max-w-xl leading-relaxed"
+      >
+        {sub}
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto pt-2"
+      >
+        <CtaPill
+          label={primaryCta?.label}
+          target={primaryCta?.target}
+          trackClick="cta:hero:primary"
+        />
+        <a
+          href={secondaryCta?.href}
+          class="px-4 py-4 text-sm text-base-content/70 hover:text-base-content transition-colors tracking-label"
+          data-track-click="cta:hero:secondary"
+        >
+          {secondaryCta?.label}
+        </a>
+      </div>
+    </div>
+
+    {cycle && <CycleCard cycle={cycle} />}
+  </div>
+</main>

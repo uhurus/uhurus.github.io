@@ -1,0 +1,138 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import CtaPill from "../../components/ui/CtaPill.astro"
+import IconChip from "../../components/ui/IconChip.astro"
+import PhaseRail from "../../components/ui/PhaseRail.astro"
+import PhaseTags from "../../components/ui/PhaseTags.astro"
+import "../../styles/app.css"
+
+const services = (await getCollection("services"))
+  .filter(s => s.id !== "fintech")
+  .sort((a, b) => a.data.order - b.data.order)
+
+// Iteración cierra el panel como banda a todo el ancho.
+const iteracion = services.find(s => s.id === "iteracion")
+if (iteracion) {
+  services.splice(services.indexOf(iteracion), 1)
+  services.push(iteracion)
+}
+
+// Nada crece en alto: todas 1×1. Solo iteración cierra como banda a todo el ancho.
+// Posiciones explícitas para que el panel empaquete sin huecos.
+const cardPlacements = [
+  "lg:col-start-1 lg:row-start-1",
+  "lg:col-start-2 lg:row-start-1",
+  "lg:col-start-3 lg:row-start-1",
+  "lg:col-start-1 lg:row-start-2",
+  "lg:col-start-2 lg:row-start-2",
+  "lg:col-start-3 lg:row-start-2",
+  "lg:col-start-1 lg:row-start-3 lg:col-span-3",
+]
+---
+
+<Layout
+  title="Servicios | uhurus — laboratorio de producto"
+  description="Un mismo equipo de producto de principio a fin. Trabaja con nosotros en todo el recorrido o solo en un tramo."
+>
+  <main class="section bg-base-100 pt-32">
+    <div
+      class="hero-grid"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="shell relative z-10">
+      <div
+        class="max-w-3xl"
+        data-appear
+      >
+        <div class="flex items-center gap-4 mb-8">
+          <PhaseRail />
+          <span class="eyebrow">el ciclo completo</span>
+        </div>
+
+        <h1 class="h1">
+          Entra en el ciclo en la <span class="text-grad"
+            >fase que necesites</span
+          >
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-base-content/70 leading-relaxed mt-6"
+        >
+          Un mismo equipo de producto de principio a fin. Trabaja con nosotros
+          en todo el recorrido o solo en un tramo.
+        </p>
+      </div>
+
+      <!-- Panel enmarcado con alturas dinámicas -->
+      <div
+        class="frame mt-16"
+        data-appear
+      >
+        <div class="grid gap-px md:grid-cols-2 lg:grid-cols-3">
+          {
+            services.map((service, index) => (
+              <a
+                href={`/servicios/${service.id}`}
+                class:list={["cell group", cardPlacements[index]]}
+              >
+                <div class="cell-inner">
+                  <div class="cell-head">
+                    <IconChip
+                      icon={service.data.icon}
+                      size="lg"
+                    />
+                    <PhaseTags phases={service.data.phase} />
+                  </div>
+
+                  <h2 class="h3 md:text-3xl text-base-content mb-3">
+                    <Fragment set:html={service.data.title} />
+                  </h2>
+                  <p class="text-base-content/70 leading-relaxed max-w-sm">
+                    {service.data.summary}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="mt-16"
+        data-appear
+      >
+        <div
+          class="relative overflow-hidden rounded-2xl border border-edge bg-ink p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+        >
+          <div
+            class="absolute -inset-4 bg-live/5 blur-2xl"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative">
+            <span
+              class="instrument text-label-sm tracking-widest text-base-content/50 uppercase mb-3 inline-block"
+            >
+              nuestra experiencia
+            </span>
+            <h2 class="h3 md:text-3xl">
+              Hemos trabajado donde fallar cuesta muy caro.
+            </h2>
+            <p class="text-base-content/70 mt-2 max-w-xl">
+              Banca y pagos exigen un nivel de cuidado que aplicamos a cada
+              proyecto.
+            </p>
+          </div>
+          <CtaPill
+            href="/servicios/fintech"
+            label="Ver nuestra experiencia"
+            variant="outline"
+            className="relative shrink-0"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+import ServiceCard from "./ServiceCard.astro"
+
+interface Mode {
+  title: string
+  description: string
+  icon?: string
+}
+
+interface Props {
+  modes: Mode[]
+}
+
+const { modes } = Astro.props
+---
+
+{
+  modes.length > 0 && (
+    <div
+      class="mt-20"
+      data-appear
+    >
+      <SectionEyebrow label="formas de trabajar" />
+      <div class="grid md:grid-cols-2 gap-4">
+        {
+          modes.map(mode => (
+            <ServiceCard
+              icon={mode.icon}
+              title={mode.title}
+              description={mode.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+  )
+}

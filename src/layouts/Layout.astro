@@ -1,13 +1,23 @@
 ---
-import Footer from "../components/layout/Footer.astro"
-import Header from "../components/layout/Header.astro"
+import Footer from "../components/chrome/Footer.astro"
+import Header from "../components/chrome/Header.astro"
+import Seo from "@jdevalk/astro-seo-graph/Seo.astro"
 
 import "../styles/app.css"
+import { graphForPage, SITE_URL } from "../lib/schema"
 
 const {
-  title = "Transforma los retos financieros en tu ventaja competitiva",
-  description = "Combinamos experiencia técnica y conocimiento regulatorio para construir soluciones que impulsan el crecimiento.",
+  title = "Laboratorio de producto e innovación",
+  description = "Laboratorio de producto e innovación. Diseño y desarrollo de soluciones digitales de alto impacto en toda España.",
+  ogImage = "/banner.jpg",
+  ogType = "website",
 } = Astro.props
+
+const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "") || "/"
+const canonicalURL = new URL(pathname, SITE_URL).toString()
+const siteTitle = title.includes("uhurus") ? title : `${title} | uhurus`
+
+const graph = graphForPage({ title, description, url: canonicalURL })
 ---
 
 <!doctype html>
@@ -21,15 +31,26 @@ const {
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <meta
-      name="description"
-      content={description}
+
+    <Seo
+      title={siteTitle}
+      description={description}
+      canonical={canonicalURL}
+      siteName="uhurus"
+      locale="es_ES"
+      ogType={ogType}
+      ogImage={ogImage}
+      ogLocale="es-ES"
+      ogImageAlt={`uhurus - ${title}`}
+      twitter={{
+        card: "summary_large_image",
+      }}
+      graph={graph}
+      extraLinks={[
+        { rel: "icon", type: "image/png", href: "/favicon.ico" },
+        { rel: "sitemap", href: "/sitemap-index.xml" },
+      ]}
     />
-    <meta
-      name="keywords"
-      content="consultoría fintech, desarrollo fintech, cumplimiento regulatorio, arquitectura financiera, PSD2, PSD3, marketplaces financieros, pagos escalables"
-    />
-    <title>{title} | uhurus</title>
 
     <link
       rel="preload"
@@ -46,67 +67,52 @@ const {
 
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DM+Sans:wght@100..1000&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
       ><link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DM+Sans:wght@100..1000&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       /></noscript
     >
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://uhurus.com"
-    />
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/svg"
-      href="favicon.svg"
-    />
-    <!-- Open Graph / Social -->
-    <meta
-      property="og:title"
-      content="uhurus | Transforma los retos financieros en tu ventaja competitiva"
-    />
-    <meta
-      property="og:description"
-      content="¿Sientes que tus finanzas frenan el ritmo de tu negocio? Te ayudamos a ponerlas a la altura del resto de tu empresa, convirtiendo obligaciones en oportunidades.."
-    />
-    <meta
-      property="og:type"
-      content="website"
-    />
-    <meta
-      property="og:url"
-      content="https://uhurus.com"
-    />
-    <meta
-      property="og:image"
-      content="https://uhurus.com/images/og-image.jpg"
-    />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "uhurus",
-        "image": "https://uhurus.com/images/logo.jpg",
-        "description": "Consultoría y desarrollo técnico-estratégico Fintech para empresas."
-      }
-    </script>
     <slot name="head" />
   </head>
   <body
     class="font-sans antialiased"
-    data-theme="light"
+    data-theme="uhurus"
   >
     <Header />
     <slot />
     <Footer />
+    <script>
+      // Appear on scroll — global (responde a prefers-reduced-motion vía CSS)
+      const appearEls = document.querySelectorAll("[data-appear]")
+      if ("IntersectionObserver" in window && appearEls.length) {
+        const io = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-appeared")
+                io.unobserve(entry.target)
+              }
+            })
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        )
+        appearEls.forEach(el => io.observe(el))
+      } else {
+        appearEls.forEach(el => el.classList.add("is-appeared"))
+      }
+    </script>
+    <script>
+      import { initScrollDepth, initSectionTracking, initClickTracking } from "../lib/umami-track"
+      initScrollDepth()
+      initSectionTracking()
+      initClickTracking()
+    </script>
     {
       import.meta.env.PROD ? (
         <script

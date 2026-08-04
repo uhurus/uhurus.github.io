@@ -1,0 +1,20 @@
+---
+interface Props {
+  icon: string
+  variant?: "live" | "neutral"
+  size?: "md" | "sm" | "lg"
+  className?: string
+}
+
+const { icon, variant = "live", size = "md", className = "" } = Astro.props
+
+const sizeClass =
+  size === "sm" ? "text-base" : size === "lg" ? "text-3xl" : "text-2xl"
+
+const variantClass = variant === "neutral" ? "text-base-content/50" : "text-live"
+---
+
+<i
+  class={`fas ${icon} ${sizeClass} ${variantClass} shrink-0 ${className}`}
+  aria-hidden="true"
+/>

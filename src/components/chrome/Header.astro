@@ -1,0 +1,83 @@
+---
+import CtaPill from "../ui/CtaPill.astro"
+import Logo from "./Logo.astro"
+---
+
+<header
+  class="backdrop-blur-md fixed top-0 left-0 w-full z-50 border-b border-edge bg-base-100/80"
+>
+  <nav class="navbar px-5 min-h-14">
+    <div class="navbar-start">
+      <a href="/" aria-label="uhurus — inicio" data-track-click="logo">
+        <Logo />
+      </a>
+    </div>
+    <div class="navbar-center hidden md:flex items-center justify-end gap-6">
+      <a
+        href="/nosotros"
+        class="nav-link"
+        data-track-click="nav:nosotros"
+        >Nosotros</a
+      >
+      <a
+        href="/servicios"
+        class="nav-link"
+        data-track-click="nav:servicios"
+        >Servicios</a
+      >
+      <a
+        href="/servicios/fintech"
+        class="nav-link"
+        data-track-click="nav:fintech"
+        >Fintech</a
+      >
+    </div>
+    <div class="navbar-end">
+      <CtaPill
+        label="Llevar mi idea al laboratorio"
+        variant="outline"
+        target="_blank"
+        className="hidden md:inline-flex"
+        arrowClass="flex h-9 w-9 items-center justify-center rounded-full bg-live text-ink text-sm"
+        trackClick="cta:calendar"
+      />
+      <div class="md:hidden flex items-center">
+        <button
+          aria-label="mostrar menu"
+          id="menu-toggler"
+          class="p-2 transition-transform active:scale-90"
+        >
+          <i class="fas fa-bars text-base-content text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div
+    id="mobile-menu"
+    class="text-base-content transition-[height] duration-500 ease-in-out md:hidden h-0 overflow-hidden flex flex-col justify-stretch px-4"
+  >
+    <a href="/nosotros" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:nosotros">Nosotros</a>
+    <a href="/servicios" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:servicios">Servicios</a>
+    <a href="/servicios/fintech" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:fintech">Fintech</a>
+    <a
+      href="https://calendar.app.google/S7ywUCJRonwUAQi5A"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-accent mt-3 rounded-sm"
+      data-track-click="cta:calendar"
+      >Llevar mi idea al laboratorio</a
+    >
+  </div>
+</header>
+
+<script>
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLElement
+
+  function handleClick() {
+    mobileMenu.classList.toggle("h-65")
+  }
+  // Mobile menu toggle
+  document
+    .getElementById("menu-toggler")
+    ?.addEventListener("click", handleClick)
+</script>

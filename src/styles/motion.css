@@ -1,0 +1,38 @@
+/* ────────────────────────────────────────────
+   Movimiento — aparición en scroll y accesibilidad
+   ──────────────────────────────────────────── */
+
+:root {
+  --ease-appear-in: cubic-bezier(0.37, 0.01, 0, 0.98);
+}
+
+/* Aparición en scroll — transición orquestada, sutil */
+[data-appear] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s var(--ease-appear-in),
+    transform 0.9s var(--ease-appear-in);
+}
+
+[data-appear].is-appeared {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-appear] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,44 @@
+---
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+
+interface Faq {
+  question: string
+  answer: string
+}
+
+interface Props {
+  faqs: Faq[]
+}
+
+const { faqs } = Astro.props
+---
+
+{
+  faqs.length > 0 && (
+    <div
+      class="mt-20 max-w-3xl"
+      data-appear
+    >
+      <SectionEyebrow label="preguntas frecuentes" />
+      <div class="join join-vertical w-full">
+        {
+          faqs.map(faq => (
+            <div class="collapse join-item bg-base-100 border border-base-300">
+              <input
+                type="radio"
+                name="service-faq"
+                aria-label="mostrar respuesta"
+              />
+              <div class="collapse-title font-semibold">
+                <h3>{faq.question}</h3>
+              </div>
+              <div class="collapse-content text-sm">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  )
+}

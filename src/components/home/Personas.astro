@@ -1,0 +1,52 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro"
+
+interface Item {
+  title: string
+  description: string
+  href?: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  items?: Item[]
+}
+
+const { eyebrow, h2, intro, items = [] } = Astro.props
+---
+
+<section class="section bg-base-100">
+  <div class="shell">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={h2}
+      intro={intro}
+      align="split"
+    />
+
+    <div class="flex flex-col" data-appear>
+      {items.map((item) => (
+        <a
+          href={item.href ?? "/servicios"}
+          class="group flex flex-col md:flex-row md:items-center gap-4 md:gap-10 py-8 md:py-12 border-t border-edge transition-colors last:border-b"
+        >
+          <h3 class="h3 sm:text-3xl md:text-4xl text-base-content md:w-2/5 md:pr-10 group-hover:text-grad transition-colors">
+            {item.title}
+          </h3>
+
+          <p class="md:flex-1 text-base-content/70 group-hover:text-base-content text-xl leading-relaxed max-w-[34ch] transition-colors">
+            {item.description}
+          </p>
+
+          <span class="shrink-0 inline-flex items-center justify-center size-12 md:size-14 rounded-full border border-edge bg-white/2 text-base-content/60 group-hover:border-live group-hover:bg-live group-hover:text-ink transition-colors">
+            <svg viewBox="0 0 24 24" fill="none" class="size-5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">
+              <path d="M5 12h14m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

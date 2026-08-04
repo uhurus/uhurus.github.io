@@ -1,0 +1,15 @@
+---
+interface Props {
+  number: string
+  color: string
+}
+
+const { number, color } = Astro.props
+---
+
+<div
+  class="flex h-14 w-14 items-center justify-center rounded-full border font-display text-lg font-bold"
+  style={`border-color:color-mix(in oklab,${color} 45%,var(--color-edge));color:${color};background:rgba(8,10,10,0.9)`}
+>
+  {number}
+</div>

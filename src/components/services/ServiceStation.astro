@@ -1,0 +1,239 @@
+---
+// ServiceStation — arquetipo de página de servicio.
+// Cada servicio toca uno o varios pasos del ciclo (plan·code·ship·test·repeat).
+import type { CollectionEntry } from "astro:content"
+import ContactForm from "../forms/ContactForm.astro"
+import Card from "../ui/Card.astro"
+import CtaPill from "../ui/CtaPill.astro"
+import IconChip from "../ui/IconChip.astro"
+import PhaseRail from "../ui/PhaseRail.astro"
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+import ServiceAudience from "./ServiceAudience.astro"
+import ServiceCard from "./ServiceCard.astro"
+import ServiceFaqs from "./ServiceFaqs.astro"
+import ServiceIncludes from "./ServiceIncludes.astro"
+import ServiceModes from "./ServiceModes.astro"
+import ServiceSteps from "./ServiceSteps.astro"
+
+interface Props {
+  entry: CollectionEntry<"services">
+  backHref?: string
+}
+
+const { entry, backHref = "/servicios" } = Astro.props
+const {
+  phase,
+  kicker,
+  title,
+  lead,
+  body,
+  points,
+  ctaText,
+  ctaHref = "/#contacto",
+  quote,
+  audience = [],
+  steps = [],
+  includes = [],
+  faqs = [],
+  modes = [],
+  capabilities,
+  capabilitiesFootnote,
+  contact,
+} = entry.data
+---
+
+<main class="section bg-base-100 pt-32">
+  <div
+    class="hero-grid"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 shell">
+    <a
+      href={backHref}
+      class="inline-flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors mb-10"
+    >
+      <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i> Volver a servicios
+    </a>
+
+    <div
+      class="max-w-3xl"
+      data-appear
+    >
+      <div class="flex items-center gap-4 mb-8">
+        <PhaseRail active={phase} />
+        <span class="eyebrow">{kicker}</span>
+      </div>
+
+      <h1
+        class="h1"
+      >
+        <Fragment set:html={title} />
+      </h1>
+      <p class="text-xl md:text-2xl text-base-content/70 leading-relaxed mt-8">
+        {lead}
+      </p>
+    </div>
+
+    {
+      body && (
+        <div
+          class="max-w-3xl mt-12 rounded-2xl border border-edge bg-surface/60 p-8 md:p-10 text-lg text-base-content/70 leading-relaxed"
+          data-appear
+        >
+          <Fragment set:html={body} />
+        </div>
+      )
+    }
+
+    {audience.length > 0 && <ServiceAudience audience={audience} />}
+
+    {steps.length > 0 && <ServiceSteps steps={steps} />}
+
+    {includes.length > 0 && <ServiceIncludes includes={includes} />}
+
+    {
+      capabilities && capabilities.length > 0 && (
+        <div
+          class="mt-20"
+          data-appear
+        >
+          <SectionEyebrow label="capacidades" />
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {
+              capabilities.map(capability => (
+                <ServiceCard
+                  icon={capability.icon}
+                  title={capability.title}
+                  description={capability.description}
+                />
+              ))
+            }
+
+            {
+              capabilitiesFootnote && (
+                <Card className="justify-between gap-6">
+                  <div>
+                    <span class="instrument text-label-sm tracking-widest text-base-content/50 uppercase">
+                      {capabilitiesFootnote.label}
+                    </span>
+                    <p class="font-display text-xl md:text-2xl text-base-content/70 leading-relaxed mt-6">
+                      {capabilitiesFootnote.text}
+                    </p>
+                  </div>
+                  <CtaPill
+                    label={capabilitiesFootnote.ctaLabel}
+                    variant="outline"
+                    className="self-start"
+                    trackClick="cta:service:contact"
+                  />
+                </Card>
+              )
+            }
+          </div>
+        </div>
+      )
+    }
+
+    <div
+      class="mt-20"
+      data-appear
+    >
+      <SectionEyebrow label="qué cambia" />
+
+      <div class="grid md:grid-cols-3 gap-4">
+        {
+          points.map(point => (
+            <ServiceCard
+              icon={point.icon}
+              title={point.title}
+              description={point.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    {faqs.length > 0 && <ServiceFaqs faqs={faqs} />}
+
+    {modes.length > 0 && <ServiceModes modes={modes} />}
+
+    {
+      quote && (
+        <div
+          class="mt-20 max-w-3xl"
+          data-appear
+        >
+          <div class="relative">
+            <div
+              class="absolute -inset-3 rounded-2xl bg-live/5 blur-2xl"
+              aria-hidden="true"
+            />
+            <Card padding="xl" className="relative">
+              <span class="instrument text-label-sm tracking-widest text-base-content/50 uppercase relative">
+                {quote.label}
+              </span>
+              <p class="font-display text-xl md:text-2xl text-base-content/70 leading-relaxed mt-5 relative">
+                {quote.text}
+              </p>
+            </Card>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      contact ? (
+        <div
+          class="mt-20"
+          data-appear
+        >
+          <section
+            id="contacto"
+            class="section py-24 bg-base-200 border-t border-edge"
+          >
+            <div class="shell">
+              <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div data-appear>
+                  <SectionEyebrow label={contact.eyebrow} />
+                   <h2 class="h2 mt-4 mb-6">
+                    <Fragment set:html={contact.title} />
+                  </h2>
+                  <p class="text-xl text-base-content/70 mb-10 max-w-md leading-relaxed">
+                    {contact.sub}
+                  </p>
+                  <div class="space-y-6">
+                    <a href="mailto:hola@uhurus.com" class="group flex items-center gap-4">
+                      <IconChip icon="fa-envelope" variant="neutral" />
+                      <div>
+                        <p class="instrument text-label-sm tracking-widest text-base-content/50 uppercase mb-0.5">email directo</p>
+                        <span class="text-lg font-medium group-hover:text-live transition-colors">hola@uhurus.com</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div data-appear>
+                  <ContactForm />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      ) : (
+        <div
+          class="mt-20 flex flex-col sm:flex-row items-center gap-4"
+          data-appear
+        >
+          <CtaPill
+            label={ctaText}
+            trackClick="cta:service:cta"
+          />
+          <span class="text-sm text-base-content/60"
+            >Llamada de 30 minutos, sin compromiso</span
+          >
+        </div>
+      )
+    }
+  </div>
+</main>

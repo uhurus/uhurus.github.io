@@ -1,0 +1,18 @@
+---
+import Card from "../ui/Card.astro"
+import IconChip from "../ui/IconChip.astro"
+
+interface Props {
+  icon?: string
+  title: string
+  description: string
+}
+
+const { icon, title, description } = Astro.props
+---
+
+<Card className="gap-6">
+  {icon && <IconChip icon={icon} size="lg" />}
+  <h3 class="h3">{title}</h3>
+  <p class="text-sm md:text-base text-base-content/70 leading-relaxed">{description}</p>
+</Card>

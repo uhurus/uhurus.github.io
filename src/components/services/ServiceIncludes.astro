@@ -1,0 +1,36 @@
+---
+import Card from "../ui/Card.astro"
+import IconChip from "../ui/IconChip.astro"
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+
+interface Props {
+  includes: string[]
+}
+
+const { includes } = Astro.props
+---
+
+{
+  includes.length > 0 && (
+    <div
+      class="mt-20"
+      data-appear
+    >
+      <SectionEyebrow label="lo que incluye" />
+      <Card>
+        <ul class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+          {
+            includes.map(item => (
+              <li class="flex items-start gap-4">
+                <IconChip icon="fa-check" size="sm" className="mt-1" />
+                <p class="text-base text-base-content/70 leading-relaxed">
+                  {item}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  )
+}

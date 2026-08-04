@@ -1,0 +1,44 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro"
+
+interface Item {
+  title: string
+  description: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  items?: Item[]
+}
+
+const { eyebrow, h2, intro, items = [] } = Astro.props
+---
+
+<section class="section bg-base-200">
+  <div class="shell">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={h2}
+      intro={intro}
+      align="split"
+    />
+
+    <div
+      class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-edge"
+      data-appear
+    >
+      {
+        items.map(item => (
+          <div class="py-8 md:px-8 md:py-0 md:first:pl-0 md:last:pr-0 flex flex-col gap-4">
+            <h3 class="h3">{item.title}</h3>
+            <p class="text-base-content/70 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

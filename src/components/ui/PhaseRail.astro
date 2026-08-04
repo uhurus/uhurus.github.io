@@ -1,0 +1,36 @@
+---
+// PhaseRail — las lengüetas del ciclo (plan · code · ship · test · repeat).
+// La firma del sitio: la navegación cuenta el método del laboratorio.
+// `active` marca los pasos del ciclo que toca el servicio.
+interface Props {
+  active?: string[]
+  id?: string
+}
+
+const { active = [], id } = Astro.props
+
+const steps = [
+  { id: "plan", label: "plan", color: "var(--step-plan)" },
+  { id: "code", label: "code", color: "var(--step-code)" },
+  { id: "ship", label: "ship", color: "var(--step-ship)" },
+  { id: "test", label: "test", color: "var(--step-test)" },
+  { id: "repeat", label: "repeat", color: "var(--step-repeat)" },
+]
+---
+
+<div id={id} class="inline-flex items-stretch" role="list" aria-label="Ciclo de trabajo del laboratorio">
+  {steps.map((step) => (
+    <div
+      role="listitem"
+      class="tab-phase"
+      data-state={active.includes(step.id) ? "active" : undefined}
+      style={`--tab-color:${step.color}`}
+    >
+      <span
+        class="mr-2 inline-block h-1.5 w-1.5 rounded-full align-middle"
+        style={`background:${step.color}`}
+      ></span>
+      {step.label}
+    </div>
+  ))}
+</div>

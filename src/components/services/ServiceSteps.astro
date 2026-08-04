@@ -1,0 +1,45 @@
+---
+import Card from "../ui/Card.astro"
+import SectionEyebrow from "../ui/SectionEyebrow.astro"
+
+interface Step {
+  title: string
+  description: string
+}
+
+interface Props {
+  steps: Step[]
+}
+
+const { steps } = Astro.props
+---
+
+{
+  steps.length > 0 && (
+    <div
+      class="mt-20"
+      data-appear
+    >
+      <SectionEyebrow label="cómo lo hacemos" />
+      <div class="grid md:grid-cols-2 gap-4">
+        {
+          steps.map((step, i) => (
+            <Card className="flex items-start gap-6">
+              <span class="instrument text-4xl text-base-content/20 font-bold leading-none mt-1">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div class="flex flex-col gap-3">
+                <h3 class="h3">
+                  {step.title}
+                </h3>
+                <p class="text-sm md:text-base text-base-content/70 leading-relaxed">
+                  {step.description}
+                </p>
+            </Card>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  )
+}

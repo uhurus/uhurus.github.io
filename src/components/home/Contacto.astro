@@ -1,0 +1,105 @@
+---
+import ContactForm from "../forms/ContactForm.astro"
+import IconChip from "../ui/IconChip.astro"
+
+interface Email {
+  label: string
+  address: string
+}
+
+interface Calendar {
+  label: string
+  text: string
+  href: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  sub?: string
+  email?: Email
+  calendar?: Calendar
+}
+
+const { eyebrow, h2, sub, email, calendar } = Astro.props
+---
+
+<section
+  id="contacto"
+  class="section bg-base-200 border-t border-edge"
+>
+  <div class="shell">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <div
+        class="lg:sticky lg:top-28"
+        data-appear
+      >
+        <span class="eyebrow"> {eyebrow} </span>
+        <h2
+          class="h2 mt-4 mb-6"
+        >
+          {h2}
+        </h2>
+        <p class="text-xl text-base-content/70 mb-10 max-w-md leading-relaxed">
+          {sub}
+        </p>
+
+        <div class="space-y-6">
+          {
+            email?.address && (
+              <a
+                href={`mailto:${email.address}`}
+                class="group flex items-center gap-4"
+                data-track-click="home:email"
+              >
+                <IconChip icon="fa-envelope" variant="neutral" />
+                <div>
+                  <p
+                    class="instrument text-label-sm tracking-widest uppercase mb-0.5"
+                  >
+                    {email.label}
+                  </p>
+                  <span
+                    class="text-lg font-medium group-hover:text-live transition-colors"
+                    >{email.address}</span
+                  >
+                </div>
+              </a>
+            )
+          }
+
+          {
+            calendar?.href && (
+              <a
+                href={calendar.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-4"
+                data-track-click="home:calendar"
+              >
+                <IconChip icon="fa-calendar-check" variant="neutral" />
+                <div>
+                  <p
+                    class="instrument text-label-sm tracking-widest uppercase mb-0.5"
+                  >
+                    {calendar.label}
+                  </p>
+                  <span
+                    class="text-lg font-medium group-hover:text-live transition-colors"
+                  >
+                    {calendar.text} <i
+                      class="fas fa-external-link-alt ml-1 text-sm"></i>
+                  </span>
+                </div>
+              </a>
+            )
+          }
+        </div>
+      </div>
+
+      <div data-appear>
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>

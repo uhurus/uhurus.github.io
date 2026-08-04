@@ -1,0 +1,91 @@
+/* ─────────────────────────────────────────────
+   uhurus · laboratorio de producto
+   Sistema de tokens — 3 capas (primitiva → semántica → componente)
+   Fuente de verdad: docs/brand-guidelines.md
+   ───────────────────────────────────────────── */
+
+@plugin '@tailwindcss/typography';
+
+@theme {
+  /* Tipografía */
+  --font-display    : "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans       : "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-instrument : "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ── Primitivas ─────────────────────────────── */
+  --color-ink          : #0c0f0e;    /* base — negro-verde profundo */
+  --color-ink-deep     : #080a0a;    /* base más profunda */
+  --color-surface      : #121614;    /* superficie elevada / tarjetas */
+  --color-edge         : #232a28;    /* hairlines y bordes */
+  --color-paper        : #f4efe6;    /* material paper (hueso brillante) */
+  --color-paper-dim    : #c8c1ae;    /* paper atenuado */
+  --color-amber        : #d99a2b;    /* material wire */
+  --color-amber-bright : #f0b13f;
+  --color-code         : #2a3238;    /* material code (grafito) */
+  --color-code-bright  : #9fb0a9;    /* grafito legible sobre oscuro */
+  --color-live         : #00d492;    /* verde de marca — único acento live */
+  --color-live-bright  : #3fe6b2;
+  --color-violet       : #b866ff;    /* sintaxis de código (neón) */
+  --color-blue         : #4589ff;    /* red, despliegue */
+  --color-coral        : #ff6f47;    /* fricción, métricas */
+  --color-error        : #ff5f3c;
+
+  /* ── Semántica de ciclo ──────────────────────── */
+  --step-plan   : var(--color-paper);
+  --step-test   : var(--color-pink-500);
+  --step-ship   : var(--color-cyan-500);
+  --step-code   : var(--color-orange-500);
+  --step-repeat : var(--color-live);
+
+  /* Animación */
+  --animate-ping-slow: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+  --text-label        : 0.6875rem;
+  --text-label-sm     : 0.625rem;
+  --tracking-nav      : 0.48px;
+  --tracking-label    : 0.32px;
+  --tracking-label-sm : 0.28px;
+  --leading-display   : 1.05;
+  --container-prose   : 52ch;
+  --shadow-card       : 0 16px 40px -20px rgba(0, 0, 0, 0.8);
+  --shadow-card-live  : 0 30px 80px -30px rgba(0, 212, 146, 0.35);
+}
+
+@plugin "daisyui" {
+  themes: uhurus --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "uhurus";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100          : #0c0f0e;
+  --color-base-200          : #121614;
+  --color-base-300          : #232a28;
+  --color-base-content      : #ece5d4;
+  --color-primary           : #006b5e;
+  --color-primary-content   : #ece5d4;
+  --color-secondary         : #339e89;
+  --color-secondary-content : #0c0f0e;
+  --color-accent            : #00d492;
+  --color-accent-content    : #0c0f0e;
+  --color-neutral           : #1c2126;
+  --color-neutral-content   : #ece5d4;
+  --color-info              : #1d9cff;
+  --color-info-content      : oklch(29% 0.066 243.157);
+  --color-success           : oklch(76% 0.177 163.223);
+  --color-success-content   : oklch(37% 0.077 168.94);
+  --color-warning           : #d99a2b;
+  --color-warning-content   : oklch(41% 0.112 45.904);
+  --color-error             : #ff5f3c;
+  --color-error-content     : oklch(27% 0.105 12.094);
+  --radius-selector : 0.25rem;
+  --radius-field    : 0.25rem;
+  --radius-box      : 0.5rem;
+  --size-selector : 0.25rem;
+  --size-field    : 0.25rem;
+  --border : 1px;
+  --depth  : 1;
+  --noise  : 0;
+}

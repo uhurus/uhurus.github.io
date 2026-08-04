@@ -1,0 +1,369 @@
+---
+import PhaseRail from "../ui/PhaseRail.astro"
+
+interface CycleStep {
+  label: string
+  title: string
+  description: string
+  tasks: string[]
+}
+
+interface Props {
+  cycle: { steps: CycleStep[] }
+}
+
+const { cycle } = Astro.props
+const cycleSteps = cycle?.steps ?? []
+const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
+---
+
+<div
+  class="relative w-full max-w-lg mx-auto"
+  data-appear
+>
+  <div
+    id="cycle-glow"
+    class="absolute -inset-8 blur-3xl opacity-70"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div
+    id="cycle-card"
+    class="relative rounded-2xl border border-edge bg-ink/95 backdrop-blur p-6 shadow-card-live"
+  >
+    <div class="border-b border-edge pb-4">
+      <PhaseRail
+        active={["plan"]}
+        id="cycle-rail"
+      />
+    </div>
+
+    <div
+      id="cycle-progress-wrap"
+      class="h-0.5 mt-4 overflow-hidden rounded-full bg-edge/50"
+    >
+      <div
+        id="cycle-progress"
+        class="h-full w-0 rounded-full bg-live"
+      ></div>
+    </div>
+
+    <div class="py-6">
+      <p
+        class="instrument text-label tracking-widest text-base-content/50 uppercase"
+      >
+        ciclo del laboratorio
+      </p>
+
+      <div id="cycle-content" class="mt-5">
+        <div class="flex items-baseline justify-between gap-4">
+          <h3
+            id="cycle-title"
+            class="h3"
+          >
+          </h3>
+          <span
+            id="cycle-number"
+            class="instrument text-sm tabular-nums"
+          ></span>
+        </div>
+        <p
+          id="cycle-desc"
+          class="text-sm text-base-content/70 leading-relaxed mt-3"
+        >
+        </p>
+
+        <ul id="cycle-tasks" class="mt-5 space-y-2.5">
+          <li class="cycle-task" data-state="queued">
+            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+            <span class="cycle-task-label"></span>
+          </li>
+          <li class="cycle-task" data-state="queued">
+            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+            <span class="cycle-task-label"></span>
+          </li>
+          <li class="cycle-task" data-state="queued">
+            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+            <span class="cycle-task-label"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-edge pt-4">
+      <span
+        class="instrument text-label-sm tracking-widest text-base-content/50"
+      >
+        uhurus · laboratorio de producto
+      </span>
+      <span class="inline-flex items-center gap-1.5">
+        <span class="relative flex h-1.5 w-1.5">
+          <span
+            id="cycle-ping"
+            class="absolute inline-flex h-full w-full rounded-full animate-ping-slow opacity-60"
+          ></span>
+          <span
+            id="cycle-dot"
+            class="relative inline-flex h-1.5 w-1.5 rounded-full bg-live"
+          ></span>
+        </span>
+        <span
+          id="cycle-status"
+          class="instrument text-label-sm tracking-widest text-live"
+        >
+          en · plan
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  #cycle-glow {
+    transition: background 900ms ease;
+  }
+
+  #cycle-progress {
+    transition: width 600ms cubic-bezier(0.37, 0.01, 0, 0.98), background 500ms ease;
+  }
+
+  #cycle-content {
+    transition: opacity 260ms ease, transform 260ms var(--ease-appear-in);
+  }
+
+  #cycle-content.is-swapping {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  #cycle-dot,
+  #cycle-ping {
+    transition: background 500ms ease;
+  }
+
+  /* ── Tareas del ciclo ─────────────────────────── */
+  .cycle-task {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--color-base-content);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+
+  .cycle-task[data-state="queued"] {
+    opacity: 0.35;
+    transform: translateY(4px);
+  }
+
+  .cycle-task[data-state="doing"],
+  .cycle-task[data-state="done"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cycle-task[data-state="done"] .cycle-task-label {
+    color: color-mix(in oklab, var(--color-base-content) 55%, transparent);
+  }
+
+  .cycle-task-check {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--task-color) 40%, transparent);
+    flex-shrink: 0;
+    transition: background 300ms ease, border-color 300ms ease;
+  }
+
+  .cycle-task-check::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.28rem;
+    border-left: 1.5px solid var(--color-ink);
+    border-bottom: 1.5px solid var(--color-ink);
+    transform: rotate(-45deg) translateY(-1px);
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .cycle-task-mark {
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background: var(--task-color);
+    transition: transform 200ms ease;
+  }
+
+  .cycle-task[data-state="doing"] .cycle-task-mark {
+    animation: cycle-pulse 850ms ease-in-out infinite;
+  }
+
+  .cycle-task[data-state="done"] .cycle-task-mark {
+    transform: scale(0);
+  }
+
+  .cycle-task[data-state="done"] .cycle-task-check {
+    background: var(--task-color);
+    border-color: var(--task-color);
+  }
+
+  .cycle-task[data-state="done"] .cycle-task-check::after {
+    opacity: 1;
+  }
+
+  @keyframes cycle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+  }
+</style>
+
+<script type="application/json" id="cycle-data" set:html={cycleJson} />
+
+<script>
+  // Ciclo animado del laboratorio: las fases se suceden y dentro de cada una
+  // las tareas entran, se hacen y se cierran antes de pasar a la siguiente.
+  const steps = JSON.parse(document.getElementById("cycle-data")?.textContent ?? "[]")
+
+  // Presentación: color derivado del label de cada paso — nunca en datos.
+  const stepColors = {
+    plan   : "var(--step-plan)",
+    code   : "var(--step-code)",
+    ship   : "var(--step-ship)",
+    test   : "var(--step-test)",
+    repeat : "var(--step-repeat)",
+  }
+  const stepColor = step => stepColors[step.label] ?? "var(--live)"
+
+  const tabs       = document.querySelectorAll("#cycle-rail [role='listitem']")
+  const titleEl    = document.getElementById("cycle-title")
+  const descEl     = document.getElementById("cycle-desc")
+  const numberEl   = document.getElementById("cycle-number")
+  const contentEl  = document.getElementById("cycle-content")
+  const taskEls    = document.querySelectorAll("#cycle-tasks .cycle-task")
+  const taskLabels = document.querySelectorAll("#cycle-tasks .cycle-task-label")
+  const progressEl = document.getElementById("cycle-progress")
+  const glowEl     = document.getElementById("cycle-glow")
+  const dotEl      = document.getElementById("cycle-dot")
+  const pingEl     = document.getElementById("cycle-ping")
+  const statusEl   = document.getElementById("cycle-status")
+
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches
+
+  const TASK_TIME   = 700
+  const PHASE_PAUSE = 1000
+  const SWAP_TIME   = 280
+  const TOTAL_TASKS = steps.length ? steps.length * (steps[0]?.tasks?.length ?? 0) : 0
+
+  let completedTasks = 0
+  let timers = []
+
+  function clearTimers() {
+    timers.forEach(clearTimeout)
+    timers = []
+  }
+
+  function setRail(index) {
+    tabs.forEach((tab, i) => {
+      tab.dataset.state = i < index ? "done" : i === index ? "active" : ""
+    })
+  }
+
+  function setProgress() {
+    progressEl.style.width = (completedTasks / TOTAL_TASKS) * 100 + "%"
+  }
+
+  function setPhaseColor(color) {
+    progressEl.style.background = color
+    dotEl.style.background = color
+    pingEl.style.background = color
+    statusEl.style.color = color
+    glowEl.style.background = `color-mix(in oklab, ${color} 12%, transparent)`
+  }
+
+  function setTasks(tasks, color) {
+    taskLabels.forEach((label, i) => {
+      label.textContent = tasks[i] ?? ""
+      const task = taskEls[i]
+      task.dataset.state = "queued"
+      task.style.setProperty("--task-color", color)
+    })
+  }
+
+  function setTaskState(index, state) {
+    if (taskEls[index]) taskEls[index].dataset.state = state
+  }
+
+  function runPhase(index) {
+    clearTimers()
+    const step = steps[index]
+
+    // Nueva vuelta al ciclo: la barra vuelve a cero.
+    if (index === 0) {
+      completedTasks = 0
+      setProgress()
+    }
+
+    setRail(index)
+    setPhaseColor(stepColor(step))
+    statusEl.textContent = step.label
+
+    setTasks(step.tasks, stepColor(step))
+
+    contentEl.classList.add("is-swapping")
+    timers.push(
+      setTimeout(() => {
+        titleEl.textContent  = step.title
+        descEl.textContent   = step.description
+        numberEl.textContent = String(index + 1).padStart(2, "0") + " / 05"
+        numberEl.style.color = stepColor(step)
+        contentEl.classList.remove("is-swapping")
+      }, SWAP_TIME),
+    )
+
+    // Las tareas se suceden: entran, se hacen y se cierran.
+    taskEls.forEach((_, i) => {
+      const tStart = SWAP_TIME + 400 + i * TASK_TIME
+      timers.push(setTimeout(() => setTaskState(i, "doing"), tStart))
+      timers.push(
+        setTimeout(() => {
+          setTaskState(i, "done")
+          completedTasks++
+          setProgress()
+        }, tStart + 480),
+      )
+    })
+
+    // Pausa breve al cerrar la fase y salto a la siguiente.
+    const tEnd = SWAP_TIME + 400 + taskEls.length * TASK_TIME + PHASE_PAUSE
+    timers.push(setTimeout(() => runPhase((index + 1) % steps.length), tEnd))
+  }
+
+  if (steps.length === 0) {
+    // Sin datos de ciclo: dejar el esqueleto estático, no animar nada.
+  } else if (prefersReduced) {
+    // Estático: primera fase completa, sin recorrido animado.
+    const step = steps[0]
+    setRail(0)
+    setPhaseColor(stepColor(step))
+    statusEl.textContent = "en · " + step.label
+    titleEl.textContent = step.title
+    descEl.textContent = step.description
+    numberEl.textContent = "01 / 05"
+    numberEl.style.color = stepColor(step)
+    setTasks(step.tasks, stepColor(step))
+    taskEls.forEach((_, i) => setTaskState(i, "done"))
+    completedTasks = steps[0].tasks.length
+    setProgress()
+    contentEl.classList.remove("is-swapping")
+  } else {
+    runPhase(0)
+  }
+</script>

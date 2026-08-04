@@ -1,495 +1,67 @@
 ---
-import ContactForm from "../components/ContactForm.astro"
-import FrequentQuestions from "../components/faq/FrequentQuestions.astro"
-
-import InfoCard from "../components/layout/InfoCard.astro"
+import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
-import "../styles/app.css"
+import Hero from "../components/home/Hero.astro"
+import Problema from "../components/home/Problema.astro"
+import Modelo from "../components/home/Modelo.astro"
+import Personas from "../components/home/Personas.astro"
+import Capacidades from "../components/home/Capacidades.astro"
+import LoQueConstruimos from "../components/home/LoQueConstruimos.astro"
+import LoQueCambia from "../components/home/LoQueCambia.astro"
+import Metodologia from "../components/home/Metodologia.astro"
+import Resultados from "../components/home/Resultados.astro"
+import Fintech from "../components/home/Fintech.astro"
+import Contacto from "../components/home/Contacto.astro"
+
+const sections = (await getCollection("home")).sort(
+  (a, b) => a.data.order - b.data.order,
+)
 ---
 
 <Layout>
-  <main
-    class="relative text-neutral-content h-screen flex items-center justify-center text-center px-4 overflow-hidden"
-  >
-    <div class="absolute inset-0 bg-neutral z-0"></div>
-    <div class="relative z-10 max-w-6xl mx-auto flex flex-col gap-4">
-      <h1 class="text-5xl quicksand md:text-6xl font-bold mb-15">
-        Transformamos los <span class="text-accent">retos financieros</span>
-        en tu ventaja competitiva a través de la tecnología
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-        Combinamos <span class="text-accent font-bold">experiencia técnica</span
-        > y conocimiento regulatorio para construir soluciones que impulsan el crecimiento.
-      </p>
-      <div class="mt-8 flex justify-center space-x-4">
-        <a
-          href="#contacto"
-          class="btn btn-accent btn-lg"
-        >
-          Habla con nosotros
-        </a>
-        <a
-          href="#servicios"
-          class="btn btn-lg"
-        >
-          Nuestros servicios
-        </a>
-      </div>
-    </div>
-  </main>
+  {sections.map((section) => {
+    const track = section.data.type
+    switch (section.data.type) {
+      case "hero":
+        return <div data-track={track}><Hero {...section.data} /></div>
+      case "problema":
+        return <div data-track={track}><Problema {...section.data} /></div>
+      case "modelo":
+        return <div data-track={track}><Modelo {...section.data} /></div>
+      case "personas":
+        return <div data-track={track}><Personas {...section.data} /></div>
+      case "capacidades":
+        return <div data-track={track}><Capacidades {...section.data} /></div>
+      case "loQueConstruimos":
+        return <div data-track={track}><LoQueConstruimos {...section.data} /></div>
+      case "loQueCambia":
+        return <div data-track={track}><LoQueCambia {...section.data} /></div>
+      case "metodologia":
+        return <div data-track={track}><Metodologia {...section.data} /></div>
+      case "resultados":
+        return <div data-track={track}><Resultados {...section.data} /></div>
+      case "experiencia":
+        return <div data-track={track}><Fintech {...section.data} /></div>
+      case "contacto":
+        return <div data-track={track}><Contacto {...section.data} /></div>
+      default:
+        const _exhaustive: never = section.data.type
+        return null
+    }
+  })}
 
-  <section
-    id="servicios"
-    class="py-20"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-10">
-          Soluciones tecnológicas de <span
-            class="text-accent quicksand bg-neutral px-2 py-1 rounded-box"
-            >alto impacto<span class="animate-[pulse_1s_infinite]">_</span
-            ></span
-          >
-        </h2>
-        <p class="text-xl text-neutral max-w-3xl mx-auto">
-          Nos especializamos en construir la base tecnológica de tu negocio para
-          que puedas centrarte en crecer
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <InfoCard
-          title="Cobros y pagos a medida"
-          description="Diseñamos y desarrollamos plataformas seguras y escalables para automatizar la gestión de pagos y cobros."
-          icon="fa-wallet"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Alto volumen transaccional</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>eCommerce</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Marketplace</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
-
-        <InfoCard
-          title="Portales de clientes"
-          description="Creamos portales de autoservicio para tus clientes que simplifican el acceso a la información. Liberando tiempo y recursos para tu equipo."
-          icon="fa-user"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Automatización</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Conciliación</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
-
-        <InfoCard
-          title="APIs Bancarias & Pagos"
-          description="Conectamos tu plataforma con esquemas de pago (VISA, SEPA) y APIs bancarias bajo arquitecturas escalables."
-          icon="fa-project-diagram"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Integración con entidades financieras</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Optimización de costes transaccionales</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
-
-        <InfoCard
-          title="Plataformas"
-          description="Diseñamos la arquitectura de pagos para modelos multi-partes (split payments, reconciliación automática...)."
-          icon="fa-robot"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Flujos de dinero entre múltiples actores</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Lógica de comisiones y referidos</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
-
-        <InfoCard
-          title="Cumplimiento Inteligente"
-          description="Integramos regulaciones en tu producto desde el diseño, sin sacrificar experiencia de usuario."
-          icon="fa-shield-alt"
-        >
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>KYC/AML automatizado</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-              <span>Reporting regulatorio</span>
-            </li>
-          </ul>
-          <div class="card-actions">
-            <a href="#contacto">
-              Saber más <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </InfoCard>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experiencia -->
-  <section
-    id="experiencia"
-    class="py-20 bg-base-200"
-  >
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="md:flex items-center gap-12">
-        <div class="">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Amplia experiencia <span
-              class="text-accent quicksand bg-neutral px-2 py-1 rounded-box"
-              >Fintech<span class="animate-[pulse_1s_infinite]">_</span>
-            </span>
-          </h2>
-          <p class="text-xl text-neutral">
-            Con +10 años liderando innovación en empresas fintech y entidades de
-            pago reguladas, hemos enfrentado los mismos desafíos que tu
-            proyecto.
-          </p>
-          <p class="text-xl text-neutral mt-4 mb-8">
-            Nuestra misión es cerrar la brecha entre la complejidad regulatoria
-            y la oportunidad tecnológica. No solo asesoramos, sino que diseñamos
-            y construimos la infraestructura de software que permite a las
-            empresas líderes innovar con total seguridad.
-          </p>
-          <div class="space-y-6">
-            <div class="flex">
-              <div class="flex-shrink-0">
-                <div class="badge badge-soft badge-xl badge-accent w-14 py-7">
-                  <i class="fas fa-medal text-xl"></i>
-                </div>
-              </div>
-              <div class="ml-4">
-                <p class="text-lg font-medium">Arquitecturas escalables</p>
-                <p class="text-neutral mt-1">
-                  Hemos diseñado sistemas que procesan millones de
-                  transacciones.
-                </p>
-              </div>
-            </div>
-            <div class="flex">
-              <div class="flex-shrink-0">
-                <div class="badge badge-soft badge-xl badge-accent w-14 py-7">
-                  <i class="fas fa-lightbulb text-xl"></i>
-                </div>
-              </div>
-              <div class="ml-4">
-                <p class="text-lg font-medium">Modelos innovadores</p>
-                <p class="text-neutral mt-1">
-                  Desde marketplaces B2B hasta plataformas de referidos con
-                  lógica de pagos multi-nivel.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8">
-            <a
-              href="#metodologia"
-              class="inline-flex items-center text-accent font-medium"
-            >
-              Ver nuestra metodología <i class="fas fa-arrow-down ml-2"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metodología (Resumen) -->
-  <section
-    id="metodologia"
-    class="py-20"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Metodología <span
-            class="text-accent quicksand bg-neutral px-2 rounded-box">ágil</span
-          > y centrada en <span
-            class="text-accent bg-neutral quicksand px-2 rounded-box"
-            >resultados</span
-          >
-        </h2>
-        <p class="text-xl text-neutral max-w-3xl mx-auto">
-          Combinamos una amplia experiencia técnica con un enfoque estratégico
-          para proyectos Fintech.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Paso 1 -->
-        <InfoCard
-          centered
-          title="Diagnóstico estratégico"
-          description="Identificamos riesgos técnicos/regulatorios y oportunidades de diferenciación."
-          iconText="1"
-        />
-
-        <InfoCard
-          centered
-          title="Prototipado rápido"
-          description=" MVP funcional para validar suposiciones críticas con usuarios reales."
-          iconText="2"
-        />
-        <InfoCard
-          centered
-          title="Desarrollo iterativo"
-          description="Ciclos de 2-4 semanas con entregables funcionales en cada uno."
-          iconText="3"
-        />
-        <InfoCard
-          centered
-          title="Escalado seguro"
-          description="Arquitectura preparada para crecimiento sin rehacer el código base."
-          iconText="4"
-        />
-      </div>
-
-      <div class="mt-12 text-center">
-        <a
-          href="#contacto"
-          class="btn btn-accent"
-        >
-          ¿Cómo aplicaría a tu proyecto? Hablemos
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Casos de Uso -->
-  <section
-    id="casos"
-    class="py-20 bg-base-200"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Casos de uso para <br /><span
-            class="text-accent quicksand bg-neutral px-2 py rounded-box"
-            >modelos complejos</span
-          >
-        </h2>
-        <p class="text-xl text-neutral max-w-3xl mx-auto">
-          Hemos resuelto desafíos técnicos en proyectos innovadores:
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card shadow-xl bg-base-100">
-          <div class="card-body">
-            <div class="flex items-center mb-4">
-              <div
-                class="badge badge-soft badge-accent badge-lg h-12 w-12 rounded-full"
-              >
-                <i class="fas fa-store"></i>
-              </div>
-              <h3 class="card-title ml-2">Marketplace B2B</h3>
-            </div>
-            <p class="text-neutral mb-4">
-              Plataforma con pagos divididos entre vendedor, marketplace y
-              socios. Implementamos:
-            </p>
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Lógica de reparto automático de fondos</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Reconciliación contable en tiempo real</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Cumplimiento con directiva de fondos electrónicos</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="card shadow-xl bg-base-100">
-          <div class="card-body">
-            <div class="flex items-center mb-4">
-              <div
-                class="badge badge-soft badge-accent badge-lg h-12 w-12 rounded-full"
-              >
-                <i class="fas fa-user-friends text-accent"></i>
-              </div>
-              <h3 class="card-title ml-2">Plataformas multi-usuario</h3>
-            </div>
-            <p class="text-neutral mb-4">
-              Sistema de comisiones multi-nivel con pagos automáticos.
-              Solucionamos:
-            </p>
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Validación KYC de referidores</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Liquidaciones automáticas</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                <span>Reporting fiscal integrado</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="mt-12 text-center">
-        <p class="text-xl text-neutral mb-6">
-          ¿Tu proyecto tiene desafíos similares?
-        </p>
-        <a
-          href="#contacto"
-          class="btn btn-lg btn-accent text-gray-900"
-        >
-          Analicemos tu caso
-        </a>
-      </div>
-      <div class="max-w-5xl mx-auto my-8">
-        <FrequentQuestions />
-      </div>
-    </div>
-
-    <section class="py-20 bg-accent my-12">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          No dejes que la complejidad frene tu innovación
-        </h2>
-        <p class="text-xl mb-8 opacity-90">
-          Hablemos de cómo nuestra experiencia puede construir la solución
-          tecnológica que necesitas para competir y crecer.
-        </p>
-        <a
-          href="#contacto"
-          class="btn btn-lg btn-neutral"
-        >
-          Hablemos de tu proyecto
-        </a>
-      </div>
-    </section>
-
-    <section
-      id="contacto"
-      class="py-20"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="md:flex gap-12">
-          <div class="md:w-1/2 mb-10 md:mb-0">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-              Hablemos de tu proyecto
-            </h2>
-            <p class="text-xl text-neutral mb-8">
-              Cuéntanos sobre tus desafíos y te propondremos un enfoque
-              técnico-estratégico a medida.
-            </p>
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="flex-shrink-0 text-accent mt-1">
-                  <i class="fas fa-envelope text-xl"></i>
-                </div>
-                <div class="ml-4">
-                  <p class="text-lg font-medium">Email</p>
-                  <p class="text-neutral text-sm">hola@uhurus.com</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <div class="flex-shrink-0 text-accent mt-1">
-                  <i class="fas fa-map-marker-alt text-xl"></i>
-                </div>
-                <div class="ml-4">
-                  <p class="text-lg font-medium">Ubicación</p>
-                  <p class="text-neutral text-sm">Barakaldo, Bizkaia</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <div class="flex-shrink-0 text-accent mt-1">
-                  <i class="fas fa-calendar-check text-xl"></i>
-                </div>
-                <div class="ml-4">
-                  <p class="text-lg font-medium">Llamada exploratoria</p>
-                  <p class="text-neutral text-sm mb-2">
-                    Hablamos sobre tu necesidad sin compromiso
-                  </p>
-                  <a
-                    href="https://calendar.app.google/S7ywUCJRonwUAQi5A"
-                    target="_blank"
-                    class="text-neutral"
-                  >
-                    Agendar <i class="fas fa-arrow-right ml-2"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/2">
-            <ContactForm />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      // Smooth scrolling for all links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const href = this.getAttribute("href")
+        if (href && href.startsWith("#") && document.querySelector(href)) {
           e.preventDefault()
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          })
-          // Close mobile menu if open
-          document.getElementById("mobile-menu")?.classList.toggle("h-65")
-        })
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+          document.getElementById("mobile-menu")?.classList.remove("h-65")
+          document.getElementById("mobile-menu")?.classList.add("h-0")
+        }
       })
-    </script>
-  </section>
+    })
+  </script>
 </Layout>

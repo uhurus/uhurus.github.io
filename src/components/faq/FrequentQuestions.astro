@@ -3,72 +3,50 @@ import Question from "./Question.astro"
 
 const questions = [
   {
-    question: "Somos una asesoría/gestoría, ¿nos sirven vuestros servicios?",
-    answer: "¡Sí! Ayudamos a profesionales como tú a:",
+    question: "¿Cómo es vuestro proceso de desarrollo de productos digitales?",
+    answer: "Trabajamos como el equipo de producto que te falta, solo cuando lo necesitas:",
     reasons: [
-      "<span class='font-bold'>Digitalizar procesos financieros</span>: Cobros recurrentes automatizados y verificación de datos con APIs bancarias.",
-      "<span class='font-bold'>Reducir trabajo manual</span>: Herramientas para reconciliaciones bancarias e informes fiscales automáticos.",
-      "<span class='font-bold'>Cumplimiento normativo</span>: Adaptación a PSD3/GDPR en gestión de datos financieros.",
+      "<span class='font-bold'>Validamos construyendo</span>: Sacamos una versión real en semanas y los datos deciden.",
+      "<span class='font-bold'>Desarrollo iterativo</span>: Entregas continuas para que veas progreso real.",
+      "<span class='font-bold'>Métricas desde el día 1</span>: decidimos con datos, no a ojo.",
     ],
   },
   {
-    question: "Tenemos un marketplace, ¿cómo podéis ayudarnos?",
-    answer: "Habilitamos la arquitectura de pagos para modelos multi-partes:",
+    question: "¿Cómo podéis ayudarnos con la modernización de sistemas legacy?",
+    answer: "Probamos ideas nuevas sin tocar tu sistema principal:",
     reasons: [
-      "<span class='font-bold'>Split payments</span>: Distribución automática de fondos entre vendedores, plataforma y socios.",
-      "<span class='font-bold'>Reconciliación contable</span>: En tiempo real para evitar discrepancias.",
-      "<span class='font-bold'>KYC integrado</span>: Validación de usuarios según normativa.",
+      "<span class='font-bold'>Reemplazo por fases</span>: Actualizamos tu tecnología de forma segura y sin parar la operativa.",
+      "<span class='font-bold'>Nuevas líneas de negocio</span>: Portales, automatizaciones o nuevos productos digitales.",
+      "<span class='font-bold'>Sin arriesgar lo que factura</span>: Migramos lo viejo sin tirar lo que ya funciona.",
     ],
   },
   {
-    question:
-      "Somos una startup, ¿podríais resolver nuestros desafíos con pagos recurrentes?",
-    answer: "¡Absolutamente! Especializados en:",
+    question: "¿Seguís especializados en banca y pagos?",
+    answer: "Llevamos años en el sector y aplicamos esa exigencia a cualquier producto:",
     reasons: [
-      "<span class='font-bold'>Pasarelas adaptativas</span>: Lógica de retry automático para primas mensuales fallidas.",
-      "<span class='font-bold'>Solvencia</span>: Gestión de fondos de clientes según regulación.",
+      "<span class='font-bold'>Exigencia del sector</span>: Conocemos los problemas de este sector porque los hemos resuelto, no porque los hayamos leído.",
+      "<span class='font-bold'>Lógicas de pago complejas</span>: Si tu proyecto necesita repartos de pagos entre varios, sabemos hacerlo sin dolor de cabeza.",
+      "<span class='font-bold'>Seguridad por defecto</span>: Protegemos los datos desde el diseño, no al final.",
     ],
   },
   {
-    question:
-      "Gestionamos una red de franquicias con múltiples TPVs, ¿tenéis solución para nosotros?",
-    answer: "Sí, centralizamos y optimizamos tus cobros:",
+    question: "¿Qué incluye vuestro servicio de MVP?",
+    answer: "Es la forma más rápida y efectiva de probar tu idea en el mercado real:",
     reasons: [
-      "<span class='font-bold'>Unificación de pagos</span>: Reconciliación automática entre TPVs físicos/online.",
-      "<span class='font-bold'>Negociación agregada</span>: Reducción de comisiones bancarias al operar como red.",
-      "<span class='font-bold'>Gestión centralizada</span>: Gestión centralizada de fondos y liquidaciones automáticas a cuenta.",
-    ],
-  },
-
-  {
-    question:
-      "Trabajamos en un sector tradicional (ej: retail), ¿por qué necesitaríamos Fintech?",
-    answer: "Podemos modernizar tus operaciones con:",
-    reasons: [
-      "<span class='font-bold'>Sistemas de cobro unificados</span>: Combina terminales físicos, links de pago y pasarelas online en una única reconciliación.",
-      "<span class='font-bold'>Conciliación automatizada</span>: Automatiza tus cobros o pagos a pvoeedores.",
-      "<span class='font-bold'>Gestión de tesorería predictiva</span>: Proyección de flujos de caja basada en datos históricos.",
-    ],
-  },
-
-  {
-    question: "Somos una startup Fintech, ¿qué valor nos podéis aportar?",
-    answer: "Te podemos acompañar en:",
-    reasons: [
-      "<span class='font-bold'>Diseño técnico-regulatorio</span>: Desde el MVP hasta la escalabilidad, asegurando cumplimiento con PSD2/PSD3.",
-      "<span class='font-bold'>Conectividad bancaria</span>: Integración con APIs de entidades financieras y optimización de costes transaccionales.",
-      "<span class='font-bold'>Automatización de procesos</span>: Due diligence, reporting regulatorio y gestión de chargebacks.",
+      "<span class='font-bold'>Enfoque en lo esencial</span>: Desarrollamos solo lo crítico para validar la demanda real.",
+      "<span class='font-bold'>Lanzamiento ágil</span>: En semanas en lugar de meses.",
+      "<span class='font-bold'>Feedback de mercado</span>: Consigues los primeros clientes o inversores con algo real.",
     ],
   },
   {
-    question: "Nuestro proyecto es muy específico, ¿hacen soluciones a medida?",
-    answer: "¡Absolutamente! Ejemplos de proyectos personalizados:",
+    question: "¿Hacéis seguimiento o mantenimiento después de lanzar el producto?",
+    answer: "No te abandonamos tras el lanzamiento. Ofrecemos mejora continua:",
     reasons: [
-      "<span class='font-bold'>Programas de lealtad</span>: Lógica de puntos y pagos automáticos a partners.",
-      "<span class='font-bold'>Plataformas B2B</span>: Facturación electrónica con descuentos por volumen y multi-divisas.",
-      "<span class='font-bold'>Modelos de suscripción</span>: Cobros recurrentes con gestión de fallos integrada.",
+      "<span class='font-bold'>Análisis de métricas</span>: Evaluamos qué partes del producto funcionan mejor.",
+      "<span class='font-bold'>Mantenimiento proactivo</span>: Aseguramos el rendimiento y la escalabilidad.",
+      "<span class='font-bold'>Iteración continua</span>: Evolucionamos la herramienta con datos de uso real.",
     ],
-  },
+  }
 ]
 ---
 

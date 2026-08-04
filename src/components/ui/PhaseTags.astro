@@ -1,0 +1,34 @@
+---
+// PhaseTags — las fases del ciclo que toca un servicio (plan · code · ship · test · repeat).
+// Etiquetas mono coloreadas con el token de cada fase.
+interface Props {
+  phases: string[]
+  className?: string
+}
+
+const { phases, className = "" } = Astro.props
+
+const phaseTone: Record<string, string> = {
+  plan: "var(--step-plan)",
+  code: "var(--step-code)",
+  ship: "var(--step-ship)",
+  test: "var(--step-test)",
+  repeat: "var(--step-repeat)",
+}
+---
+
+<span class={`flex flex-wrap items-center gap-2 ${className}`}>
+  {
+    phases.map((step, index) => (
+      <Fragment>
+        {index > 0 && <span aria-hidden="true">·</span>}
+        <span
+          class="inline-flex items-center instrument text-label font-light uppercase tracking-widest"
+          style={`color:${phaseTone[step] ?? "var(--step-repeat)"}`}
+        >
+          {step}
+        </span>
+      </Fragment>
+    ))
+  }
+</span>

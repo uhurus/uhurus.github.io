@@ -1,0 +1,45 @@
+---
+import FeatureCard from "../ui/FeatureCard.astro"
+import SectionHeading from "../ui/SectionHeading.astro"
+
+interface Item {
+  title: string
+  description: string
+  icon?: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  items?: Item[]
+}
+
+const { eyebrow, h2, intro, items = [] } = Astro.props
+---
+
+<section class="section bg-base-100">
+  <div class="shell">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={h2}
+      intro={intro}
+    />
+
+    <div
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      data-appear
+    >
+      {
+        items.map(item => (
+          <FeatureCard
+            icon={item.icon}
+            title={item.title}
+            description={item.description}
+            variant="card"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

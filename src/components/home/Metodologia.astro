@@ -1,0 +1,172 @@
+---
+// MÉTODO — el ciclo de trabajo real (5 pasos en bucle).
+// Las fases de servicio (plan → code → ship → test → repeat) explican "en qué fase entras";
+// esta sección explica "cómo trabajamos por dentro".
+// copy: .planning/copies/home.md (MÉTODO)
+import SectionHeading from "../ui/SectionHeading.astro"
+import StepNumber from "../ui/StepNumber.astro"
+
+interface Item {
+  title: string
+  description: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  items?: Item[]
+  badge?: string
+}
+
+const { eyebrow, h2, intro, items = [], badge } = Astro.props
+
+// Presentación: number/color derivados del índice — nunca en datos.
+const numbers = ["01", "02", "03", "04", "05"]
+const stepColors = ["var(--step-plan)", "var(--step-code)", "var(--step-ship)", "var(--step-test)", "var(--step-repeat)"]
+const steps = items.map((item, index) => ({
+  ...item,
+  number: numbers[index % numbers.length],
+  color: stepColors[index % stepColors.length],
+}))
+
+// Posiciones de los 5 pasos en una circunferencia (empezando arriba, en el sentido horario).
+// RADIUS en % del contenedor de la órbita (20%..80%), no en rem.
+const RADIUS = 30
+const positions = steps.map((_, i) => {
+  const angle = (-90 + i * 72) * (Math.PI / 180)
+  return {
+    left: `${50 + Math.cos(angle) * RADIUS}%`,
+    top: `${50 + Math.sin(angle) * RADIUS}%`,
+  }
+})
+
+// Marcas de dirección del giro (puntos intermedios del anillo).
+const ringAngles = [36, 108, 180, 252, 324]
+---
+
+<section
+  id="metodologia"
+  class="section bg-ink-deep"
+>
+  <!-- Rejilla de hairlines de fondo -->
+  <div
+    class="hero-grid"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="shell relative z-10">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={h2}
+      intro={intro}
+    />
+
+    <!-- Órbita (desktop) -->
+    <div
+      class="relative mx-auto hidden lg:block max-w-[50rem] h-[42rem]"
+      data-appear
+    >
+      <!-- Anillo del ciclo -->
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[30rem] rounded-full border border-dashed border-edge/60"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- Centro: cierre del bucle -->
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+      >
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-live/30 bg-live/5 px-5 py-2 text-sm text-live"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-live"></span>
+          {badge}
+        </span>
+      </div>
+
+      <!-- Marcas de dirección del giro -->
+      {
+        ringAngles.map(a => (
+          <span
+            class="absolute left-1/2 top-1/2 text-edge"
+            style={`transform:translate(-50%,-50%) rotate(${a}deg) translateY(-${RADIUS}rem)`}
+            aria-hidden="true"
+          >
+            →
+          </span>
+        ))
+      }
+
+      <!-- Pasos del ciclo -->
+      <ol
+        class="absolute inset-0"
+        aria-label="Ciclo de trabajo del laboratorio"
+      >
+        {
+          steps.map((step, index) => (
+            <li
+              class="absolute w-44 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center gap-3"
+              style={`left:${positions[index].left};top:${positions[index].top}`}
+            >
+              <StepNumber
+                number={step.number}
+                color={step.color}
+              />
+              <h3 class="h3 text-lg">
+                {step.title}
+              </h3>
+              <p class="text-sm text-base-content/70 leading-snug max-w-[12rem]">
+                {step.description}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- Móvil / tablet: pila vertical -->
+    <ol
+      class="lg:hidden flex flex-col gap-12"
+      data-appear
+    >
+      {
+        steps.map((step, index) => (
+          <li class="flex flex-col items-center text-center gap-4">
+            <StepNumber
+              number={step.number}
+              color={step.color}
+            />
+            <h3 class="h3 text-xl">
+              {step.title}
+            </h3>
+            <p class="text-sm text-base-content/70 leading-relaxed max-w-[24ch]">
+              {step.description}
+            </p>
+            {index < steps.length - 1 && (
+              <span
+                class="mt-4 h-px w-px bg-edge/50"
+                aria-hidden="true"
+              />
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <!-- Cierre del bucle (mobile) -->
+    <div
+      class="lg:hidden mt-14 flex flex-col items-center gap-3 text-center"
+      data-appear
+    >
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-live/30 bg-live/5 px-5 py-2 text-sm text-live"
+      >
+        <span class="h-1.5 w-1.5 rounded-full bg-live"></span>
+        {badge}
+      </span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro"
+import CtaPill from "../components/ui/CtaPill.astro"
+import IconChip from "../components/ui/IconChip.astro"
+import Card from "../components/ui/Card.astro"
+import PhaseRail from "../components/ui/PhaseRail.astro"
+import "../styles/app.css"
+
+const points = [
+  {
+    title: "Transparencia real",
+    description:
+      "Ves el progreso, las métricas y los problemas de cada semana.",
+    icon: "fa-eye",
+  },
+  {
+    title: "Objetivos compartidos",
+    description:
+      "Nuestro éxito es que tu producto funcione y venda, no que se entregue a tiempo.",
+    icon: "fa-bullseye",
+  },
+  {
+    title: "Un solo equipo",
+    description:
+      "Cubrimos todo lo que necesitas sin que contrates a cinco empresas.",
+    icon: "fa-users",
+  },
+]
+---
+
+<Layout
+  title="Nosotros — cómo trabajamos | uhurus"
+  description="Diseño y desarrollo en el mismo equipo, con transparencia y sin capas. Así es como hacemos producto."
+>
+  <main class="section bg-base-100 pt-32">
+    <div
+      class="hero-grid"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative z-10 shell">
+      <div
+        class="max-w-3xl"
+        data-appear
+      >
+        <div class="flex items-center gap-4 mb-6">
+          <PhaseRail active={["plan", "code", "ship", "test", "repeat"]} />
+          <span
+            class="instrument text-label tracking-widest uppercase text-live"
+            >el equipo</span
+          >
+        </div>
+
+        <h1
+          class="h1"
+        >
+          Tu equipo de producto, sin el coste de <span class="text-grad"
+            >contratarlo</span
+          >
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-base-content/70 leading-relaxed mt-6"
+        >
+          Diseño y desarrollo en el mismo equipo, con transparencia y sin capas.
+          Así es como hacemos producto.
+        </p>
+      </div>
+
+      <div
+        class="mt-16 grid lg:grid-cols-2 gap-12 items-start"
+        data-appear
+      >
+        <div>
+          <span class="eyebrow mb-4 inline-block">
+            // cómo trabajamos
+          </span>
+          <h2
+            class="h2 text-3xl md:text-4xl mb-6"
+          >
+            Trabajamos como parte de tu equipo
+          </h2>
+          <p class="text-lg text-base-content/70 leading-relaxed mb-8">
+            No hacemos proyectos cerrados que se quedan viejos al mes. Entramos
+            en tu empresa como el equipo de producto que te falta: diseño,
+            desarrollo y alguien que vela por el negocio. Todo junto, con la
+            agilidad de una startup.
+          </p>
+
+          <div class="space-y-4">
+            {
+              points.map(point => (
+                <div class="flex items-start gap-4">
+                <IconChip icon={point.icon} className="mt-1.5" />
+                  <div>
+                    <h3 class="font-bold mb-1">{point.title}</h3>
+                    <p class="text-base-content/70">{point.description}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="absolute -inset-4 bg-live/10 rounded-3xl blur-2xl opacity-50"
+            aria-hidden="true"
+          >
+          </div>
+          <Card padding="md" className="relative">
+            <span
+              class="instrument text-label-sm tracking-widest text-base-content/50 uppercase"
+              >quién hay detrás</span
+            >
+            <p
+              class="font-display text-xl text-base-content/70 leading-relaxed mt-4"
+            >
+              Un equipo de producto en Bizkaia que ha construido software donde
+              fallar cuesta caro. Esa exigencia no se queda en el sector: se
+              aplica a cada proyecto.
+            </p>
+          </Card>
+        </div>
+      </div>
+
+      <div
+        class="mt-16 flex flex-col sm:flex-row items-center gap-4"
+        data-appear
+      >
+        <CtaPill label="Hablemos de tu proyecto" />
+        <span class="text-sm text-base-content/60"
+          >Llamada de 30 minutos, sin compromiso</span
+        >
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/Legal.astro
-title: uhurus | Aviso legal
+title: uhurus | Política de privacidad
+description: "Política de privacidad de uhurus: qué datos recogemos, para qué y tus derechos de protección de datos."
 ---
 
 # POLÍTICA DE PRIVACIDAD

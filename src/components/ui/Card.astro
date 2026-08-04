@@ -1,0 +1,32 @@
+---
+// Card — contenedor unificado de tarjeta: rounded-2xl + borde edge + fondo ink.
+interface Props {
+  href?: string
+  className?: string
+  padding?: "md" | "lg" | "xl"
+}
+
+const { href, className = "", padding = "lg" } = Astro.props
+const paddingClass = {
+  md: "p-8",
+  lg: "p-8 md:p-10",
+  xl: "p-10 md:p-12",
+}[padding]
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={`group flex flex-col rounded-2xl border border-edge bg-ink ${paddingClass} ${className}`}
+    >
+      <slot />
+    </a>
+  ) : (
+    <div
+      class={`group flex flex-col rounded-2xl border border-edge bg-ink ${paddingClass} ${className}`}
+    >
+      <slot />
+    </div>
+  )
+}
