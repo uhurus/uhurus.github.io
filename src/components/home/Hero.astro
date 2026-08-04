@@ -29,7 +29,7 @@ const { eyebrow, h1Top, h1Highlight, sub, primaryCta, secondaryCta, cycle } = As
 ---
 
 <main
-  class="relative text-base-content min-h-screen flex items-center overflow-hidden pt-28 pb-24 px-4"
+  class="relative text-base-content min-h-screen flex items-center overflow-hidden pt-28 pb-24 px-4 max-w-full"
 >
   <!-- Fondo: rejilla de hairlines + ambientes -->
   <div class="absolute inset-0 bg-base-100 z-0" aria-hidden="true">
@@ -57,14 +57,14 @@ const { eyebrow, h1Top, h1Highlight, sub, primaryCta, secondaryCta, cycle } = As
       </span>
 
       <h1
-        class="font-display text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-display"
+        class="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-display"
       >
         {h1Top}
         <span class="block text-grad">{h1Highlight}</span>
       </h1>
 
       <p
-        class="text-xl md:text-2xl text-base-content/70 max-w-xl leading-relaxed"
+        class="text-lg sm:text-xl md:text-2xl text-base-content/70 max-w-sm sm:max-w-xl leading-relaxed"
       >
         {sub}
       </p>

@@ -43,6 +43,14 @@
     background 300ms ease;
 }
 
+@media (max-width: 40rem) {
+  .tab-phase {
+    letter-spacing : 0.08em;
+    padding        : 0.4rem 0.6rem 0.3rem;
+    font-size      : 0.6rem;
+  }
+}
+
 .tab-phase[data-state="active"] {
   color: var(--tab-color, var(--color-paper));
   background: var(--color-surface);

@@ -8,7 +8,11 @@ import Logo from "./Logo.astro"
 >
   <nav class="navbar px-5 min-h-14">
     <div class="navbar-start">
-      <a href="/" aria-label="uhurus — inicio" data-track-click="logo">
+      <a
+        href="/"
+        aria-label="uhurus — inicio"
+        data-track-click="logo"
+      >
         <Logo />
       </a>
     </div>
@@ -33,14 +37,15 @@ import Logo from "./Logo.astro"
       >
     </div>
     <div class="navbar-end">
-      <CtaPill
-        label="Llevar mi idea al laboratorio"
-        variant="outline"
-        target="_blank"
-        className="hidden md:inline-flex"
-        arrowClass="flex h-9 w-9 items-center justify-center rounded-full bg-live text-ink text-sm"
-        trackClick="cta:calendar"
-      />
+      <div class="hidden md:block">
+        <CtaPill
+          label="Llevar mi idea al laboratorio"
+          variant="outline"
+          target="_blank"
+          arrowClass="flex h-9 w-9 items-center justify-center rounded-full bg-live text-ink text-sm"
+          trackClick="cta:calendar"
+        />
+      </div>
       <div class="md:hidden flex items-center">
         <button
           aria-label="mostrar menu"
@@ -56,9 +61,24 @@ import Logo from "./Logo.astro"
     id="mobile-menu"
     class="text-base-content transition-[height] duration-500 ease-in-out md:hidden h-0 overflow-hidden flex flex-col justify-stretch px-4"
   >
-    <a href="/nosotros" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:nosotros">Nosotros</a>
-    <a href="/servicios" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:servicios">Servicios</a>
-    <a href="/servicios/fintech" class="btn btn-ghost rounded-sm mb-2" data-track-click="nav:fintech">Fintech</a>
+    <a
+      href="/nosotros"
+      class="btn btn-ghost rounded-sm mb-2"
+      data-track-click="nav:nosotros"
+      >Nosotros</a
+    >
+    <a
+      href="/servicios"
+      class="btn btn-ghost rounded-sm mb-2"
+      data-track-click="nav:servicios"
+      >Servicios</a
+    >
+    <a
+      href="/servicios/fintech"
+      class="btn btn-ghost rounded-sm mb-2"
+      data-track-click="nav:fintech"
+      >Fintech</a
+    >
     <a
       href="https://calendar.app.google/S7ywUCJRonwUAQi5A"
       target="_blank"

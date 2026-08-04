@@ -18,7 +18,7 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
 ---
 
 <div
-  class="relative w-full max-w-lg mx-auto"
+  class="relative w-full max-w-sm sm:max-w-lg mx-auto"
   data-appear
 >
   <div
@@ -46,7 +46,8 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
       <div
         id="cycle-progress"
         class="h-full w-0 rounded-full bg-live"
-      ></div>
+      >
+      </div>
     </div>
 
     <div class="py-6">
@@ -56,16 +57,19 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
         ciclo del laboratorio
       </p>
 
-      <div id="cycle-content" class="mt-5">
+      <div
+        id="cycle-content"
+        class="mt-5"
+      >
         <div class="flex items-baseline justify-between gap-4">
           <h3
             id="cycle-title"
-            class="h3"
+            class="h3 min-w-0"
           >
           </h3>
           <span
             id="cycle-number"
-            class="instrument text-sm tabular-nums"
+            class="instrument text-sm tabular-nums shrink-0"
           ></span>
         </div>
         <p
@@ -74,17 +78,35 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
         >
         </p>
 
-        <ul id="cycle-tasks" class="mt-5 space-y-2.5">
-          <li class="cycle-task" data-state="queued">
-            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+        <ul
+          id="cycle-tasks"
+          class="mt-5 space-y-2.5"
+        >
+          <li
+            class="cycle-task"
+            data-state="queued"
+          >
+            <span class="cycle-task-check"
+              ><span class="cycle-task-mark"></span></span
+            >
             <span class="cycle-task-label"></span>
           </li>
-          <li class="cycle-task" data-state="queued">
-            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+          <li
+            class="cycle-task"
+            data-state="queued"
+          >
+            <span class="cycle-task-check"
+              ><span class="cycle-task-mark"></span></span
+            >
             <span class="cycle-task-label"></span>
           </li>
-          <li class="cycle-task" data-state="queued">
-            <span class="cycle-task-check"><span class="cycle-task-mark"></span></span>
+          <li
+            class="cycle-task"
+            data-state="queued"
+          >
+            <span class="cycle-task-check"
+              ><span class="cycle-task-mark"></span></span
+            >
             <span class="cycle-task-label"></span>
           </li>
         </ul>
@@ -125,11 +147,15 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
   }
 
   #cycle-progress {
-    transition: width 600ms cubic-bezier(0.37, 0.01, 0, 0.98), background 500ms ease;
+    transition:
+      width 600ms cubic-bezier(0.37, 0.01, 0, 0.98),
+      background 500ms ease;
   }
 
   #cycle-content {
-    transition: opacity 260ms ease, transform 260ms var(--ease-appear-in);
+    transition:
+      opacity 260ms ease,
+      transform 260ms var(--ease-appear-in);
   }
 
   #cycle-content.is-swapping {
@@ -149,7 +175,9 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     gap: 0.7rem;
     font-size: 0.85rem;
     color: var(--color-base-content);
-    transition: opacity 300ms ease, transform 300ms ease;
+    transition:
+      opacity 300ms ease,
+      transform 300ms ease;
   }
 
   .cycle-task[data-state="queued"] {
@@ -177,7 +205,9 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     border-radius: 9999px;
     border: 1px solid color-mix(in oklab, var(--task-color) 40%, transparent);
     flex-shrink: 0;
-    transition: background 300ms ease, border-color 300ms ease;
+    transition:
+      background 300ms ease,
+      border-color 300ms ease;
   }
 
   .cycle-task-check::after {
@@ -218,49 +248,62 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
   }
 
   @keyframes cycle-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.5); }
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
   }
 </style>
 
-<script type="application/json" id="cycle-data" set:html={cycleJson} />
+<script
+  type="application/json"
+  id="cycle-data"
+  set:html={cycleJson}
+/>
 
 <script>
   // Ciclo animado del laboratorio: las fases se suceden y dentro de cada una
   // las tareas entran, se hacen y se cierran antes de pasar a la siguiente.
-  const steps = JSON.parse(document.getElementById("cycle-data")?.textContent ?? "[]")
+  const steps = JSON.parse(
+    document.getElementById("cycle-data")?.textContent ?? "[]",
+  )
 
   // Presentación: color derivado del label de cada paso — nunca en datos.
   const stepColors = {
-    plan   : "var(--step-plan)",
-    code   : "var(--step-code)",
-    ship   : "var(--step-ship)",
-    test   : "var(--step-test)",
-    repeat : "var(--step-repeat)",
+    plan: "var(--step-plan)",
+    code: "var(--step-code)",
+    ship: "var(--step-ship)",
+    test: "var(--step-test)",
+    repeat: "var(--step-repeat)",
   }
   const stepColor = step => stepColors[step.label] ?? "var(--live)"
 
-  const tabs       = document.querySelectorAll("#cycle-rail [role='listitem']")
-  const titleEl    = document.getElementById("cycle-title")
-  const descEl     = document.getElementById("cycle-desc")
-  const numberEl   = document.getElementById("cycle-number")
-  const contentEl  = document.getElementById("cycle-content")
-  const taskEls    = document.querySelectorAll("#cycle-tasks .cycle-task")
+  const tabs = document.querySelectorAll("#cycle-rail [role='listitem']")
+  const titleEl = document.getElementById("cycle-title")
+  const descEl = document.getElementById("cycle-desc")
+  const numberEl = document.getElementById("cycle-number")
+  const contentEl = document.getElementById("cycle-content")
+  const taskEls = document.querySelectorAll("#cycle-tasks .cycle-task")
   const taskLabels = document.querySelectorAll("#cycle-tasks .cycle-task-label")
   const progressEl = document.getElementById("cycle-progress")
-  const glowEl     = document.getElementById("cycle-glow")
-  const dotEl      = document.getElementById("cycle-dot")
-  const pingEl     = document.getElementById("cycle-ping")
-  const statusEl   = document.getElementById("cycle-status")
+  const glowEl = document.getElementById("cycle-glow")
+  const dotEl = document.getElementById("cycle-dot")
+  const pingEl = document.getElementById("cycle-ping")
+  const statusEl = document.getElementById("cycle-status")
 
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches
 
-  const TASK_TIME   = 700
+  const TASK_TIME = 700
   const PHASE_PAUSE = 1000
-  const SWAP_TIME   = 280
-  const TOTAL_TASKS = steps.length ? steps.length * (steps[0]?.tasks?.length ?? 0) : 0
+  const SWAP_TIME = 280
+  const TOTAL_TASKS = steps.length
+    ? steps.length * (steps[0]?.tasks?.length ?? 0)
+    : 0
 
   let completedTasks = 0
   let timers = []
@@ -320,8 +363,8 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     contentEl.classList.add("is-swapping")
     timers.push(
       setTimeout(() => {
-        titleEl.textContent  = step.title
-        descEl.textContent   = step.description
+        titleEl.textContent = step.title
+        descEl.textContent = step.description
         numberEl.textContent = String(index + 1).padStart(2, "0") + " / 05"
         numberEl.style.color = stepColor(step)
         contentEl.classList.remove("is-swapping")
