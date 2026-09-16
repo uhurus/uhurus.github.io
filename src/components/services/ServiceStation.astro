@@ -119,7 +119,7 @@ const {
                       {capabilitiesFootnote.label}
                     </span>
                     <p class="font-display text-xl md:text-2xl text-base-content/70 leading-relaxed mt-6">
-                      {capabilitiesFootnote.text}
+                      <Fragment set:html={capabilitiesFootnote.text} />
                     </p>
                   </div>
                   <CtaPill

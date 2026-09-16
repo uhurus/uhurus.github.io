@@ -78,12 +78,13 @@ const itemSchema = z.object({
 const home = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/home" }),
   schema: z.object({
-    type: z.enum(['hero', 'problema', 'modelo', 'personas', 'capacidades', 'loQueConstruimos', 'loQueCambia', 'metodologia', 'resultados', 'experiencia', 'contacto']),
+    type: z.enum(['hero', 'problema', 'modelo', 'personas', 'capacidades', 'loQueConstruimos', 'loQueCambia', 'metodologia', 'resultados', 'experiencia', 'faq', 'contacto']),
     order: z.number(),
     eyebrow: z.string().optional(),
     h2: z.string().optional(),
     intro: z.string().optional(),
     items: z.array(itemSchema).optional(),
+    faqs: z.array(faqSchema).optional(),
     h1Top: z.string().optional(),
     h1Highlight: z.string().optional(),
     sub: z.string().optional(),

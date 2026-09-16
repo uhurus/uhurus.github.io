@@ -34,7 +34,7 @@ const { eyebrow, h2, text, items = [], panel } = Astro.props
           <Fragment set:html={h2} />
         </h2>
         <p class="text-lg text-base-content/70 leading-relaxed mb-8">
-          {text}
+          <Fragment set:html={text} />
         </p>
 
         <div class="grid sm:grid-cols-2 gap-6">

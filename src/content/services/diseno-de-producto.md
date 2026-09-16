@@ -1,14 +1,14 @@
 ---
 seo:
-  title: "Diseño de producto | uhurus"
-  description: "Antes de escribir una línea de código definimos qué problema resolvemos y para quién. Diseño pensado desde el usuario, no desde la idea."
+  title: "Diseño de producto digital UX UI | uhurus"
+  description: "Diseño de producto digital desde el usuario: research y prototipos que se prueban con gente real antes de escribir código."
 icon: fa-pen-nib
 order: 1
 summary: "Definimos el problema y la solución antes de escribir código."
 phase: [plan]
 kicker: "// servicio · diseño de producto"
-title: "Que el producto sea <span class=\"text-grad\">fácil</span> de usar no es un extra"
-lead: "Antes de escribir una línea de código definimos qué problema resolvemos y para quién. Diseño pensado desde el usuario, no desde la idea."
+title: "Diseño de producto que <span class=\"text-grad\">se entiende y se usa</span>"
+lead: "Research y prototipos que se prueban con usuarios reales, antes de escribir código."
 body: |-
   Un buen diseño no es el que más bonito queda: es el que hace que la gente entienda tu producto sin que le expliquen nada. Empezamos por investigar al usuario y terminamos en prototipos que se pueden probar.
 points:
@@ -43,10 +43,16 @@ includes:
   - "Prototipos que se pueden probar, no maquetas para enseñar."
   - "El diseño documentado para que desarrollo no pierda nada."
 faqs:
+  - question: "¿Qué incluye el diseño de producto?"
+    answer: "Investigación con usuarios reales, definición del problema y del alcance, y prototipos que se pueden probar antes de escribir código."
+  - question: "¿Cuánto tarda la fase de diseño?"
+    answer: "Depende del alcance, pero trabajamos por entregas: en semanas tienes algo que ver y probar, no un documento final."
   - question: "¿Puedo contratar solo esta fase?"
     answer: "Sí, puedes entrar en el diseño y salir después, o quedarte todo el ciclo."
   - question: "¿Qué necesitáis de mí para empezar?"
     answer: "Una idea o un problema que te quite el sueño. El resto lo investigamos nosotros."
+  - question: "¿Qué diferencia hay entre UX y UI y qué incluye el diseño de producto?"
+    answer: "UX es que se entienda y se use; UI es cómo se ve. Nuestro diseño incluye investigación con usuarios reales, definición del alcance y prototipos que se prueban antes de escribir código."
 modes:
   - title: "Alcance fijo"
     description: "El diseño completo de una parte del producto, a precio y plazo cerrados."

@@ -11,6 +11,7 @@ import LoQueCambia from "../components/home/LoQueCambia.astro"
 import Metodologia from "../components/home/Metodologia.astro"
 import Resultados from "../components/home/Resultados.astro"
 import Fintech from "../components/home/Fintech.astro"
+import Faq from "../components/home/Faq.astro"
 import Contacto from "../components/home/Contacto.astro"
 
 const sections = (await getCollection("home")).sort(
@@ -42,6 +43,8 @@ const sections = (await getCollection("home")).sort(
         return <div data-track={track}><Resultados {...section.data} /></div>
       case "experiencia":
         return <div data-track={track}><Fintech {...section.data} /></div>
+      case "faq":
+        return <div data-track={track}><Faq {...section.data} /></div>
       case "contacto":
         return <div data-track={track}><Contacto {...section.data} /></div>
       default:

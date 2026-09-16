@@ -1,19 +1,19 @@
 ---
 seo:
-  title: "MVP y validación | uhurus"
-  description: "Montamos la versión mínima de tu idea en semanas y la ponemos delante de gente real. Si funciona, seguimos; si no, lo sabes pronto y barato."
+  title: "Desarrollo de MVP en semanas | uhurus"
+  description: "Desarrollamos tu MVP real en semanas, listo para tocar, pasar y probar con clientes reales."
 icon: fa-rocket
 order: 3
-summary: "El núcleo de tu idea en semanas, con clientes reales."
+summary: "Tu idea en producción, lista para crecer."
 phase: [plan, code, ship]
 kicker: "// servicio · mvp"
-title: "No lances un producto que <span class=\"text-grad\">nadie</span> quiere"
-lead: "Montamos la versión mínima de tu idea en semanas y la ponemos delante de gente real. Si funciona, seguimos; si no, lo sabes pronto y barato."
+title: "Tu MVP real, <span class=\"text-grad\">sin tirarlo después</span>"
+lead: "Versión mínima pero real, por entregas que puedes usar y enseñar desde el inicio. Base limpia para crecer si valida."
 body: |-
-  El MVP no es el producto final pequeñito: es la forma más rápida de saber si tu idea tiene negocio detrás. En vez de meses de desarrollo a ciegas, semanas de pruebas con clientes de verdad.
+  El MVP en software no es el producto final pequeñito: es la forma más rápida de saber si tu idea tiene negocio detrás. En vez de meses de desarrollo a ciegas, semanas de pruebas con clientes de verdad.
 points:
   - title: "En semanas"
-    description: "De la idea a algo usable en semanas, manteniendo calidad."
+    description: "De la idea a algo real en semanas, manteniendo calidad."
     icon: fa-rocket
   - title: "Bien hecho desde el día 1"
     description: "Construimos para que lo que funcione no haya que tirarlo."
@@ -43,10 +43,18 @@ includes:
   - "Analítica para medir lo que importa."
   - "Una base limpia para seguir construyendo si funciona."
 faqs:
+  - question: "¿Cuánto cuesta desarrollar un MVP?"
+    answer: "Depende del alcance. Primero entendemos tu caso y te damos un presupuesto claro, en alcance fijo o por sprints, sin letra pequeña."
+  - question: "¿Cuánto tarda un MVP?"
+    answer: "Por entregas: en semanas tienes una versión real que puedes usar y enseñar, sobre una base limpia para crecer si valida."
+  - question: "¿Qué incluye el MVP?"
+    answer: "Lo esencial funcionando de verdad, despliegue en producción, analítica para medir y una base limpia para seguir construyendo."
   - question: "¿Y si los datos dicen que la idea no funciona?"
     answer: "Mejor saberlo en semanas y barato que en meses y caro. Eso ya es un buen resultado."
   - question: "¿Qué pasa después del MVP?"
-    answer: "Si funciona, lo seguimos desarrollando. Tú decides hasta dónde."
+    answer: "Si valida, lo escalamos en desarrollo-completo o lo iteramos mes a mes. Tú decides hasta dónde."
+  - question: "¿Qué es un MVP y en qué se diferencia de un prototipo y una prueba de concepto?"
+    answer: "El MVP es la versión mínima pero real de tu producto en producción: se usa, se mide y sirve de base para crecer. El prototipo solo se mira y la prueba de concepto solo decide si hay negocio."
 modes:
   - title: "Alcance fijo"
     description: "Un MVP definido, a precio y plazo cerrados. Ideal si tienes una fecha de lanzamiento."
@@ -54,5 +62,5 @@ modes:
   - title: "Sprints"
     description: "Para MVPs ambiciosos, en sprints de 2 semanas con parada cuando quieras."
     icon: fa-bolt
-ctaText: "Validar mi idea"
+ctaText: "Construir mi MVP"
 ---

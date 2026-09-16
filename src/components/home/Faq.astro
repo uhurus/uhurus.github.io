@@ -1,0 +1,53 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro"
+
+interface Faq {
+  question: string
+  answer: string
+}
+
+interface Props {
+  eyebrow?: string
+  h2?: string
+  intro?: string
+  faqs?: Faq[]
+}
+
+const { eyebrow, h2, intro, faqs = [] } = Astro.props
+
+const faqJsonLd = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    }
+  : null
+---
+
+<section id="faq" class="section bg-base-100">
+  <div class="shell">
+    <SectionHeading eyebrow={eyebrow} title={h2} intro={intro} />
+    {faqJsonLd && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />
+    )}
+    <div class="max-w-3xl mx-auto" data-appear>
+      <div class="join join-vertical w-full">
+        {faqs.map((faq) => (
+          <div class="collapse join-item bg-base-100 border border-base-300">
+            <input type="radio" name="home-faq" aria-label="mostrar respuesta" />
+            <div class="collapse-title font-semibold">
+              <h3>{faq.question}</h3>
+            </div>
+            <div class="collapse-content text-sm">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

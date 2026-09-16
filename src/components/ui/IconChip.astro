@@ -1,9 +1,9 @@
 ---
 interface Props {
-  icon: string
-  variant?: "live" | "neutral"
-  size?: "md" | "sm" | "lg"
-  className?: string
+  icon       : string
+  variant?   : "live" | "neutral"
+  size?      : "md" | "sm" | "lg"
+  className? : string
 }
 
 const { icon, variant = "live", size = "md", className = "" } = Astro.props

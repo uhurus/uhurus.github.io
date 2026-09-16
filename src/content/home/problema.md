@@ -3,7 +3,7 @@ type: problema
 order: 2
 eyebrow: "// el problema"
 h2: 'El mercado no espera a tu <span class="text-grad">roadmap.</span>'
-intro: "Las consultoras venden el mismo producto: tiempo. Y el tiempo no valida una idea."
+intro: "Las consultoras venden el mismo producto: tiempo. Y el tiempo no valida una idea. Esperar al desarrollo completo para probar es lo que mata ideas."
 items:
   - title: "Venden horas."
     description: "Facturas el tiempo, no el resultado."

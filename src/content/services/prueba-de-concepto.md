@@ -1,16 +1,16 @@
 ---
 seo:
-  title: "Prueba de concepto (MVP) | uhurus"
-  description: "Construimos el núcleo de tu producto en semanas y lo ponemos delante de clientes reales. Los datos deciden si sigue o no."
+  title: "Prueba de concepto para validar tu idea | uhurus"
+  description: "Validamos tu idea en semanas con una prueba real delante de clientes. Sabrás si hay negocio antes de invertir en serio."
 icon: fa-flask
 order: 2
-summary: "Sacamos el núcleo de tu idea en semanas y lo probamos con clientes reales."
+summary: "Valida si hay negocio antes de invertir."
 phase: [plan, code, ship]
 kicker: "// servicio · prueba de concepto"
-title: "Probar tu <span class=\"text-grad\">idea</span> antes de invertir en ella"
-lead: "Construimos el núcleo de tu producto en semanas y lo ponemos delante de clientes reales. Los datos deciden si sigue o no."
+title: "Valida si tu idea tiene negocio <span class=\"text-grad\">antes de invertir en serio</span>"
+lead: "Construimos el núcleo mínimo y lo ponemos delante de clientes reales. Con informe seguir / pivotar / parar."
 body: |-
-  Una idea no se valida explicándola, se valida usándola. Lanzamos una versión mínima pero real, con la analítica puesta, para que sepas en pocas semanas si hay negocio detrás.
+  Una idea de producto no se valida explicándola, se valida usándola. Lanzamos una versión mínima pero real de tu software, con la analítica puesta, para que sepas en pocas semanas si hay negocio detrás.
 points:
   - title: "Sabes pronto y barato"
     description: "En semanas, no en meses."
@@ -43,10 +43,20 @@ includes:
   - "La versión delante de clientes reales."
   - "Un informe con los datos y la decisión: seguir, pivotar o parar."
 faqs:
+  - question: "¿Qué es una prueba de concepto?"
+    answer: "El núcleo mínimo de tu idea funcionando de verdad, delante de clientes reales, para decidir con datos si hay negocio antes de invertir en serio."
+  - question: "¿Cuánto cuesta una prueba de concepto?"
+    answer: "Depende del alcance. Primero entendemos tu caso y te damos un presupuesto claro, a precio y plazo cerrados."
+  - question: "¿Cuánto tarda?"
+    answer: "Semanas, no meses. La gracia es saberlo pronto y barato."
+  - question: "¿Se puede enseñar a inversores?"
+    answer: "Sí. Es algo real que se usa, no una presentación. Perfecto para clientes e inversores."
   - question: "¿Qué pasa si los datos dicen que no hay negocio?"
     answer: "Lo sabrás en semanas, gastando lo mínimo. Esa es la gracia."
   - question: "¿Es lo mismo que un MVP?"
-    answer: "Es la manera de construir el MVP: el núcleo de tu idea, en producción."
+    answer: "No. La PoC decide si hay negocio; el MVP ya construye la versión real para crecer."
+  - question: "¿Cómo valido mi idea de negocio antes de invertir?"
+    answer: "Con una prueba de concepto: el núcleo mínimo funcionando delante de clientes reales, con informe de seguir, pivotar o parar. En semanas y gastando lo mínimo."
 modes:
   - title: "Alcance fijo"
     description: "La prueba de concepto en semanas, a precio y plazo cerrados."

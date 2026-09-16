@@ -11,14 +11,14 @@ const services = (await getCollection("services"))
   .filter(s => s.id !== "fintech")
   .sort((a, b) => a.data.order - b.data.order)
 
-// Iteración cierra el panel como banda a todo el ancho.
-const iteracion = services.find(s => s.id === "iteracion")
-if (iteracion) {
-  services.splice(services.indexOf(iteracion), 1)
-  services.push(iteracion)
+// Software a medida cierra el panel como banda a todo el ancho: es el flagship.
+const destacado = services.find(s => s.id === "software-a-medida")
+if (destacado) {
+  services.splice(services.indexOf(destacado), 1)
+  services.push(destacado)
 }
 
-// Nada crece en alto: todas 1×1. Solo iteración cierra como banda a todo el ancho.
+// Nada crece en alto: todas 1×1. Solo software-a-medida cierra como banda a todo el ancho.
 // Posiciones explícitas para que el panel empaquete sin huecos.
 const cardPlacements = [
   "lg:col-start-1 lg:row-start-1",
@@ -27,7 +27,9 @@ const cardPlacements = [
   "lg:col-start-1 lg:row-start-2",
   "lg:col-start-2 lg:row-start-2",
   "lg:col-start-3 lg:row-start-2",
-  "lg:col-start-1 lg:row-start-3 lg:col-span-3",
+  "lg:col-start-1 lg:row-start-3 lg:col-span-2",
+  "lg:col-start-3 lg:row-start-3",
+  "lg:col-start-1 lg:row-start-4 lg:col-span-3",
 ]
 ---
 

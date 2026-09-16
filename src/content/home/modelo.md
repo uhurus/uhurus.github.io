@@ -3,7 +3,7 @@ type: modelo
 order: 3
 eyebrow: "// el modelo"
 h2: 'Laboratorio, <span class="text-grad">no fábrica</span>'
-intro: "Un laboratorio experimenta, mide y descarta rápido. Una fábrica repite procesos. Nosotros somos el primero."
+intro: "Un laboratorio experimenta, mide y descarta rápido. Una fábrica repite procesos. Nosotros somos el primero. Cada ciclo termina con algo usable que puedes tocar y pasar, no con un informe."
 items:
   - title: "Validamos construyendo"
     description: "Nada de documentos que lo venden todo y código que no demuestra nada. Sacamos una versión real en semanas y los datos deciden."

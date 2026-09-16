@@ -1,16 +1,16 @@
 ---
 seo:
-  title: "Desarrollo completo | uhurus"
-  description: "Pasamos de la versión probada a un producto sólido, seguro y preparado para crecer. Construido para facturar, no para demo."
+  title: "Escalar tu producto para que aguante | uhurus"
+  description: "Tu producto ya valida. Lo escalamos con arquitectura que aguanta tráfico, pagos e integraciones, por fases en producción, sin sustos."
 icon: fa-code
 order: 4
-summary: "Construimos la versión que aguanta tráfico y factura."
+summary: "Escalamos tu producto validado para que aguante."
 phase: [code, ship]
 kicker: "// servicio · desarrollo completo"
-title: "Cuando la idea funciona, la construimos para que <span class=\"text-grad\">aguante</span>"
-lead: "Pasamos de la versión probada a un producto sólido, seguro y preparado para crecer. Construido para facturar, no para demo."
+title: "Cuando valida, lo escalamos para que <span class=\"text-grad\">aguante</span>"
+lead: "Pasamos de la versión que valida a un producto sólido y seguro. Por fases en producción, sin sustos."
 body: |-
-  Una vez que los datos han dicho que hay negocio, la tecnología no puede ser la que frene. Asumimos el desarrollo completo y montamos la arquitectura para que aguante tráfico, integraciones y cambios sin venirse abajo.
+  Validar es el paso 1. El paso 2 es que no se caiga cuando llega tráfico, pagos con lopago.es u otras pasarelas, e integraciones. Montamos la base para crecer sin rehacer.
 points:
   - title: "Construido para crecer"
     description: "Sistemas que aguantan uso intensivo y tráfico alto."
@@ -29,7 +29,7 @@ steps:
   - title: "Arquitectura antes que código"
     description: "Pensamos cómo va a crecer antes de escribir la primera línea."
   - title: "Construimos en ciclos"
-    description: "Cada pocas semanas hay algo usable, no una sorpresa al final."
+    description: "Cada pocas semanas hay algo en producción, no una sorpresa al final."
   - title: "Aseguramos por diseño"
     description: "La seguridad se piensa desde el principio, no se añade al final."
   - title: "Lanzamos sin sustos"
@@ -43,8 +43,14 @@ includes:
   - "Seguridad y pruebas por diseño, no al final."
   - "Despliegue en producción con soporte."
 faqs:
+  - question: "¿Cuándo debo escalar mi producto?"
+    answer: "Cuando ya valida y la tecnología empieza a frenar: más tráfico, pagos, integraciones o cambios que la versión actual no aguanta."
+  - question: "¿Cómo evitáis que se caiga con picos de tráfico?"
+    answer: "Arquitectura pensada para crecer desde el principio, con pruebas y despliegue en producción con soporte. Por fases, sin sustos."
   - question: "¿Podéis trabajar con lo que ya tenemos?"
     answer: "Sí, nos integramos con tu infraestructura y sistemas actuales."
+  - question: "¿Usáis vuestra pasarela o la nuestra?"
+    answer: "lopago.es u otras pasarelas y bancos, según tu caso. La integramos sin frenar el producto."
   - question: "¿Y después del lanzamiento?"
     answer: "Nos quedamos para iterar y evolucionarlo. El software no se termina: se mejora."
 modes:

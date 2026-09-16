@@ -2,16 +2,16 @@
 type: hero
 order: 1
 eyebrow: "Laboratorio de producto"
-h1Top: "Tu idea, probada"
-h1Highlight: "con clientes reales"
-sub: "Diseñamos, construimos y medimos hasta que tu producto está validado."
+h1Top: "Tu idea en manos de clientes reales"
+h1Highlight: "en semanas"
+sub: "Aplicaciones web, apps móviles y software a medida por entregas que puedes tocar, usar y pasar a clientes desde las primeras semanas, sin esperar al desarrollo completo para probarlo."
 primaryCta:
   label: "Empezar ahora"
   href: "https://calendar.app.google/S7ywUCJRonwUAQi5A"
   target: "_blank"
 secondaryCta:
   label: "Ver el proceso"
-  href: "#metodologia"
+  href: "#problema"
 cycle:
   steps:
     - label: plan

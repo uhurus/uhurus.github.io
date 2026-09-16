@@ -1,6 +1,6 @@
 ---
 seo:
-  title: "Iteración post-lanzamiento | uhurus"
+  title: "Mejora e iteración de producto SaaS | uhurus"
   description: "Después del lanzamiento, el producto sigue vivo. Lo medimos, lo entendemos y lo mejoramos con lo que dicen los datos."
 icon: fa-sync-alt
 order: 5
@@ -43,6 +43,10 @@ includes:
   - "Correcciones y estabilidad mientras seguimos."
   - "Lanzamiento de novedades con datos detrás."
 faqs:
+  - question: "¿Qué es la iteración de producto?"
+    answer: "Medir qué se usa, decidir qué cambiar y mejorarlo mes a mes, con datos en vez de corazonadas."
+  - question: "¿Cómo medís si una mejora funciona?"
+    answer: "Con analítica de uso: qué se usa, qué se pierde y qué convierte. Cada cambio parte de algo que hemos medido."
   - question: "¿Es un compromiso indefinido?"
     answer: "No. Es una dedicación mensual y tú decides mes a mes si sigue."
   - question: "¿Qué tipo de mejoras entran?"

@@ -1,6 +1,6 @@
 ---
 seo:
-  title: "Fintech | uhurus — laboratorio de producto"
+  title: "Desarrollo fintech y software de pagos | uhurus"
   description: "Construimos tecnología para banca, pagos y plataformas donde el error cuesta dinero y reputación. Esa exigencia es la que aplicamos a todo."
 icon: fa-wallet
 order: 8
@@ -10,7 +10,7 @@ kicker: "// servicio · fintech"
 title: "Sistemas donde un fallo se paga <span class=\"text-grad\">caro.</span>"
 lead: "Construimos tecnología para banca, pagos y plataformas donde el error cuesta dinero y reputación. Esa exigencia es la que aplicamos a todo."
 body: |-
-  En fintech no vale improvisar: una caída, un cobro mal hecho o un dato filtrado se paga en dinero y confianza. Llevamos más de 10 años construyendo para este sector, así que sabemos qué se juega cada proyecto antes de empezar.
+  En fintech no vale improvisar: una caída, un cobro mal hecho o un dato filtrado se paga en dinero y confianza. Llevamos más de 10 años construyendo para este sector, y operamos en producción nuestros propios productos: <a href='https://lopago.es' target='_blank' rel='noopener' class='underline decoration-live/50 underline-offset-4 hover:text-live transition-colors'>lopago.es</a>, nuestra pasarela de pagos, y <a href='https://divisasboe.es' target='_blank' rel='noopener' class='underline decoration-live/50 underline-offset-4 hover:text-live transition-colors'>divisasboe.es</a>, con los tipos oficiales del Banco de España.
 audience:
   - "Empresas de pagos, banca y plataformas donde cada transacción cuenta."
   - "Negocios regulados que necesitan cumplir sin frenar el producto."
@@ -63,10 +63,18 @@ points:
     description: "Hemos resuelto estos problemas, no los hemos leído."
     icon: fa-handshake
 faqs:
+  - question: "¿Integráis pasarelas como Redsys o Bizum?"
+    answer: "Sí. Conectamos con bancos, pasarelas y APIs financieras, incluida nuestra propia pasarela lopago.es."
+  - question: "¿Tenéis vuestra propia pasarela de pagos?"
+    answer: "Sí, operamos lopago.es en producción. Por eso sabemos qué se juega cada transacción antes de empezar."
+  - question: "¿Cómo gestionáis el cumplimiento normativo?"
+    answer: "Integrado en el producto desde el diseño, sin complicar al usuario. La regulación está en el producto, no es una tarea aparte."
   - question: "¿Trabajáis solo con fintech?"
     answer: "No. Aplicamos esa exigencia a cualquier proyecto que no pueda permitirse fallar."
   - question: "¿Tenéis experiencia con entidades reguladas?"
     answer: "Sí, más de 10 años construyendo para banca, pagos y entidades de pago reguladas."
+  - question: "¿Cómo integro Bizum, Redsys o una pasarela de pago en mi web?"
+    answer: "Conectamos tu web con bancos, pasarelas y APIs financieras, incluida nuestra propia pasarela lopago.es, sin frenar el producto. Cuéntanos qué vendes y te proponemos la integración."
 modes:
   - title: "Alcance fijo"
     description: "Un proyecto definido, a precio y plazo cerrados."

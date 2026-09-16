@@ -1,16 +1,16 @@
 ---
 seo:
-  title: "Modernización legacy | uhurus"
-  description: "Modernizamos lo que te frena sin tirar lo que ya funciona. Paso a paso, sin parar tu operativa."
+  title: "Renovamos tu software sin parar tu operativa | uhurus"
+  description: "¿Mantener tu sistema actual sale cada vez más caro? Lo renovamos por fases, sin parar tu operativa ni perder datos."
 icon: fa-layer-group
 order: 6
 summary: "Modernizamos lo que te frena sin tirar lo que factura."
 phase: [code, ship]
-kicker: "// servicio · modernización legacy"
-title: "Tu tecnología vieja no te deja <span class=\"text-grad\">avanzar</span>"
-lead: "Modernizamos lo que te frena sin tirar lo que ya funciona. Paso a paso, sin parar tu operativa."
+kicker: "// servicio · renovación de software"
+title: "Aguantar tu software viejo <span class=\"text-grad\">sale más caro que renovarlo</span>"
+lead: "Renovamos tu sistema por fases, sin parar tu operativa ni perder datos. Y te decimos claro cuándo compensa renovar en vez de seguir aguantando."
 body: |-
-  Los sistemas antiguos cuestan dinero y no dejan innovar. Los cambiamos por tecnología moderna sin cortar el servicio: migramos por fases para que tu negocio siga funcionando mientras lo renovamos por dentro.
+  Cada año que aguantas un sistema antiguo pagas dos veces: en mantenimiento y en todo lo que no puedes lanzar. Lo renovamos por dentro sin cortar el servicio: el sistema nuevo funciona mientras el viejo se retira, sin perder datos y sin que el negocio se pare.
 points:
   - title: "Cambiar lo viejo por lo moderno"
     description: "Lenguajes y plataformas que se puedan mantener y evolucionar."
@@ -43,6 +43,14 @@ includes:
   - "El sistema nuevo funcionando mientras el viejo se retira."
   - "Tu equipo con la base formada para seguir."
 faqs:
+  - question: "¿Cómo modernizáis sin parar la operativa?"
+    answer: "Por fases: el sistema nuevo funciona mientras el viejo se retira, sin cortar el servicio ni perder datos."
+  - question: "¿Cuánto tarda una migración?"
+    answer: "Depende del sistema. Primero analizamos qué hay y te damos un plan por fases con plazo cerrado."
+  - question: "¿Cómo sé si me compensa rehacer en vez de seguir aguantando?"
+    answer: "Si mantenerlo cuesta cada vez más y te impide lanzar novedades, suele salir más caro aguantar que rehacer. Lo analizamos contigo y te lo decimos claro, con números."
+  - question: "¿Cuánto cuesta renovar nuestro software?"
+    answer: "Depende del alcance. Primero entendemos tu caso y te damos un presupuesto claro, sin letra pequeña."
   - question: "¿Perderemos datos?"
     answer: "No. La migración se planifica para que nada se pierda por el camino."
   - question: "¿Tendremos que parar la operativa?"
@@ -54,5 +62,5 @@ modes:
   - title: "Dedicación mensual"
     description: "Mantenimiento y evolución del sistema nuevo después de la migración."
     icon: fa-calendar-check
-ctaText: "Modernizar mi empresa"
+ctaText: "Renovar mi software"
 ---

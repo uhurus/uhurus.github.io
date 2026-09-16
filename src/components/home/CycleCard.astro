@@ -12,9 +12,9 @@ interface Props {
   cycle: { steps: CycleStep[] }
 }
 
-const { cycle } = Astro.props
+const { cycle }  = Astro.props
 const cycleSteps = cycle?.steps ?? []
-const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
+const cycleJson  = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
 ---
 
 <div
@@ -271,49 +271,50 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     document.getElementById("cycle-data")?.textContent ?? "[]",
   )
 
-  // Presentación: color derivado del label de cada paso — nunca en datos.
+  // Presentación: color derivado del label de cada paso
   const stepColors = {
-    plan: "var(--step-plan)",
-    code: "var(--step-code)",
-    ship: "var(--step-ship)",
-    test: "var(--step-test)",
-    repeat: "var(--step-repeat)",
+    plan   : "var(--step-plan)",
+    code   : "var(--step-code)",
+    ship   : "var(--step-ship)",
+    test   : "var(--step-test)",
+    repeat : "var(--step-repeat)",
   }
-  const stepColor = step => stepColors[step.label] ?? "var(--live)"
 
-  const tabs = document.querySelectorAll("#cycle-rail [role='listitem']")
-  const titleEl = document.getElementById("cycle-title")
-  const descEl = document.getElementById("cycle-desc")
-  const numberEl = document.getElementById("cycle-number")
-  const contentEl = document.getElementById("cycle-content")
-  const taskEls = document.querySelectorAll("#cycle-tasks .cycle-task")
-  const taskLabels = document.querySelectorAll("#cycle-tasks .cycle-task-label")
-  const progressEl = document.getElementById("cycle-progress")
-  const glowEl = document.getElementById("cycle-glow")
-  const dotEl = document.getElementById("cycle-dot")
-  const pingEl = document.getElementById("cycle-ping")
-  const statusEl = document.getElementById("cycle-status")
+  const stepColor = (step : {label : keyof typeof stepColors}) => stepColors[step.label] ?? "var(--live)"
+
+  const tabs       = document.querySelectorAll("#cycle-rail [role='listitem']") as NodeListOf<HTMLElement>
+  const titleEl    = document.getElementById("cycle-title") as HTMLElement
+  const descEl     = document.getElementById("cycle-desc") as HTMLElement
+  const numberEl   = document.getElementById("cycle-number") as HTMLElement
+  const contentEl  = document.getElementById("cycle-content") as HTMLElement
+  const taskEls    = document.querySelectorAll("#cycle-tasks .cycle-task") as NodeListOf<HTMLElement>
+  const taskLabels = document.querySelectorAll("#cycle-tasks .cycle-task-label") as NodeListOf<HTMLElement>
+  const progressEl = document.getElementById("cycle-progress") as HTMLElement
+  const glowEl     = document.getElementById("cycle-glow")  as HTMLElement
+  const dotEl      = document.getElementById("cycle-dot")  as HTMLElement
+  const pingEl     = document.getElementById("cycle-ping")  as HTMLElement
+  const statusEl   = document.getElementById("cycle-status")  as HTMLElement
 
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches
 
-  const TASK_TIME = 700
+  const TASK_TIME   = 700
   const PHASE_PAUSE = 1000
-  const SWAP_TIME = 280
+  const SWAP_TIME   = 280
   const TOTAL_TASKS = steps.length
     ? steps.length * (steps[0]?.tasks?.length ?? 0)
     : 0
 
   let completedTasks = 0
-  let timers = []
+  let timers : ReturnType<typeof setTimeout>[] = []
 
   function clearTimers() {
     timers.forEach(clearTimeout)
     timers = []
   }
 
-  function setRail(index) {
+  function setRail(index : number) {
     tabs.forEach((tab, i) => {
       tab.dataset.state = i < index ? "done" : i === index ? "active" : ""
     })
@@ -323,15 +324,18 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     progressEl.style.width = (completedTasks / TOTAL_TASKS) * 100 + "%"
   }
 
-  function setPhaseColor(color) {
+  function setPhaseColor(color : string) {
     progressEl.style.background = color
-    dotEl.style.background = color
-    pingEl.style.background = color
-    statusEl.style.color = color
-    glowEl.style.background = `color-mix(in oklab, ${color} 12%, transparent)`
+    dotEl.style.background      = color
+    pingEl.style.background     = color
+    statusEl.style.color        = color
+    glowEl.style.background     = `color-mix(in oklab, ${color} 12%, transparent)`
   }
 
-  function setTasks(tasks, color) {
+  function setTasks(
+    tasks : string[],
+    color : string
+  ) {
     taskLabels.forEach((label, i) => {
       label.textContent = tasks[i] ?? ""
       const task = taskEls[i]
@@ -340,11 +344,14 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     })
   }
 
-  function setTaskState(index, state) {
+  function setTaskState(
+    index : number,
+    state : string
+  ) {
     if (taskEls[index]) taskEls[index].dataset.state = state
   }
 
-  function runPhase(index) {
+  function runPhase(index: number) {
     clearTimers()
     const step = steps[index]
 
@@ -397,8 +404,8 @@ const cycleJson = JSON.stringify(cycleSteps).replace(/</g, "\\u003c")
     setRail(0)
     setPhaseColor(stepColor(step))
     statusEl.textContent = "en · " + step.label
-    titleEl.textContent = step.title
-    descEl.textContent = step.description
+    titleEl.textContent  = step.title
+    descEl.textContent   = step.description
     numberEl.textContent = "01 / 05"
     numberEl.style.color = stepColor(step)
     setTasks(step.tasks, stepColor(step))

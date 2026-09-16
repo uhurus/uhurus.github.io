@@ -17,4 +17,7 @@ items:
   - title: "Soy una empresa que quiere innovar"
     description: "Nuevas líneas de negocio en marcha en semanas, sin desviar a tu equipo."
     href: "/servicios"
+  - title: "Ya lo tengo claro, quiero construirlo"
+    description: "Tu app, web o software a medida, usable en semanas para tocar y probar."
+    href: "/servicios/software-a-medida"
 ---
