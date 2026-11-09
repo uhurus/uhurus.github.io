@@ -43,7 +43,7 @@ const h2ClassList = ["h2 mt-4 text-balance", h2Class]
       <h2 class:list={h2ClassList}>
         <Fragment set:html={title} />
       </h2>
-      {intro && <p class={introBase}>{intro}</p>}
+      {intro && <p class={introBase}><Fragment set:html={intro} /></p>}
     </div>
   ) : (
     <div class={container}>
@@ -55,7 +55,7 @@ const h2ClassList = ["h2 mt-4 text-balance", h2Class]
       </div>
       {intro && (
         <div class="w-full lg:w-1/2 flex flex-col justify-center">
-          <p class={introBase}>{intro}</p>
+          <p class={introBase}><Fragment set:html={intro} /></p>
         </div>
       )}
     </div>
