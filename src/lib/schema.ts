@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process"
 import { getCollection } from "astro:content"
 
 export const SITE_URL = "https://uhurus.com"
@@ -58,17 +59,33 @@ export async function serviceNodes() {
     }))
 }
 
+export function gitLastmod(filePath: string): Date | null {
+  try {
+    const log = execSync(`git log -1 --format="%cI" -- "${filePath}"`, {
+      encoding: "utf-8",
+    }).trim()
+    return log ? new Date(log) : null
+  } catch {
+    return null
+  }
+}
+
 export function graphForPage({
   title,
   description,
   url,
+  datePublished,
+  dateModified,
 }: {
   title: string
   description: string
   url: string
+  datePublished?: Date | string
+  dateModified?: Date | string
 }) {
   const breadcrumbLabel = title.replace(" | uhurus", "")
   const { pathname } = new URL(url)
+  const toIso = (d: Date | string) => (d instanceof Date ? d.toISOString() : d)
   const itemListElement = [
     {
       "@type": "ListItem",
@@ -106,6 +123,8 @@ export function graphForPage({
         description,
         breadcrumb: { "@id": `${url}#breadcrumb` },
         inLanguage: "es-ES",
+        ...(datePublished ? { datePublished: toIso(datePublished) } : {}),
+        ...(dateModified ? { dateModified: toIso(dateModified) } : {}),
       },
       {
         "@type": "BreadcrumbList",

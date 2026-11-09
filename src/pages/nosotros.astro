@@ -4,6 +4,7 @@ import CtaPill from "../components/ui/CtaPill.astro"
 import IconChip from "../components/ui/IconChip.astro"
 import Card from "../components/ui/Card.astro"
 import PhaseRail from "../components/ui/PhaseRail.astro"
+import { gitLastmod } from "../lib/schema"
 import "../styles/app.css"
 
 const points = [
@@ -26,11 +27,15 @@ const points = [
     icon: "fa-users",
   },
 ]
+
+const lastmod = gitLastmod("src/pages/nosotros.astro")
 ---
 
 <Layout
   title="Nosotros: laboratorio de producto en Bilbao | uhurus"
   description="Laboratorio de desarrollo de software en Bilbao: convertimos ideas en apps, webs y MVP. Conoce al equipo y cómo trabajamos contigo."
+  datePublished={lastmod ?? undefined}
+  dateModified={lastmod ?? undefined}
 >
   <main class="section bg-base-100 pt-32">
     <div
@@ -116,10 +121,18 @@ const points = [
             <p
               class="font-display text-xl text-base-content/70 leading-relaxed mt-4"
             >
-              Un equipo de producto en Bizkaia que ha construido software donde
-              fallar cuesta caro. Esa exigencia no se queda en el sector: se
-              aplica a cada proyecto.
+              Alejandro Berzosa, fundador. Más de 10 años construyendo
+              software para Fintech y pagos, donde fallar cuesta
+              caro. Esa exigencia la aplico a cada proyecto.
             </p>
+            <a
+              href="https://www.linkedin.com/in/aberigle"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 mt-4 text-live hover:text-base-content transition-colors"
+              ><i class="fa-brands fa-linkedin text-2xl" aria-hidden="true"></i
+              ><span class="underline decoration-live/50 underline-offset-4">linkedin.com/in/aberigle</span></a
+            >
           </Card>
         </div>
       </div>

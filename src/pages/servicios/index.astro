@@ -5,6 +5,7 @@ import CtaPill from "../../components/ui/CtaPill.astro"
 import IconChip from "../../components/ui/IconChip.astro"
 import PhaseRail from "../../components/ui/PhaseRail.astro"
 import PhaseTags from "../../components/ui/PhaseTags.astro"
+import { gitLastmod } from "../../lib/schema"
 import "../../styles/app.css"
 
 const services = (await getCollection("services"))
@@ -31,11 +32,15 @@ const cardPlacements = [
   "lg:col-start-3 lg:row-start-3",
   "lg:col-start-1 lg:row-start-4 lg:col-span-3",
 ]
+
+const lastmod = gitLastmod("src/pages/servicios/index.astro")
 ---
 
 <Layout
   title="Servicios de desarrollo de software a medida | uhurus"
   description="Apps móviles, desarrollo web, MVP, software a medida y modernización de sistemas. Desde Bilbao, proyectos en toda España."
+  datePublished={lastmod ?? undefined}
+  dateModified={lastmod ?? undefined}
 >
   <main class="section bg-base-100 pt-32">
     <div

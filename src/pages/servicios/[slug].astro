@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import ServiceStation from "../../components/services/ServiceStation.astro"
+import { gitLastmod } from "../../lib/schema"
 import "../../styles/app.css"
 
 export async function getStaticPaths() {
@@ -27,9 +28,16 @@ const faqJsonLd = faqs.length
       })),
     }
   : null
+
+const lastmod = gitLastmod(`src/content/services/${entry.id}.md`)
 ---
 
-<Layout title={seo.title} description={seo.description}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  datePublished={lastmod ?? undefined}
+  dateModified={lastmod ?? undefined}
+>
   <Fragment slot="head">
     {faqJsonLd && (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />

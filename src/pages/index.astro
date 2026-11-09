@@ -13,13 +13,16 @@ import Resultados from "../components/home/Resultados.astro"
 import Fintech from "../components/home/Fintech.astro"
 import Faq from "../components/home/Faq.astro"
 import Contacto from "../components/home/Contacto.astro"
+import { gitLastmod } from "../lib/schema"
 
 const sections = (await getCollection("home")).sort(
   (a, b) => a.data.order - b.data.order,
 )
+
+const lastmod = gitLastmod("src/pages/index.astro")
 ---
 
-<Layout>
+<Layout datePublished={lastmod ?? undefined} dateModified={lastmod ?? undefined}>
   {sections.map((section) => {
     const track = section.data.type
     switch (section.data.type) {
