@@ -1,7 +1,7 @@
 ---
 seo:
-  title: "Desarrollo web a medida | uhurus"
-  description: "Diseñamos y desarrollamos tu web a medida y en semanas la ves funcionando. Para tocar, usar y probar sin esperar al final."
+  title: "Desarrollo web a medida para empresas | uhurus"
+  description: "Webs y aplicaciones web a medida: rápidas, sin plantillas y listas para crecer. Presupuesto cerrado. Bilbao y toda España."
 icon: fa-globe
 order: 9
 summary: "Tu web a medida, funcionando en semanas."

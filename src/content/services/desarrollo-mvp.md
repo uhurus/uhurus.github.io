@@ -1,7 +1,7 @@
 ---
 seo:
-  title: "Desarrollo de MVP en semanas | uhurus"
-  description: "Desarrollamos tu MVP real en semanas, listo para tocar, pasar y probar con clientes reales."
+  title: "Desarrollo de MVP para startups y empresas | uhurus"
+  description: "Lanza tu MVP en semanas: alcance cerrado, presupuesto claro y base lista para escalar. Cuánto cuesta y tarda, sin letra pequeña."
 icon: fa-rocket
 order: 3
 summary: "Tu idea en producción, lista para crecer."

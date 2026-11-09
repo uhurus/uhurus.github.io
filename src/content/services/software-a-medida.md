@@ -1,7 +1,7 @@
 ---
 seo:
-  title: "Desarrollo de software a medida | uhurus"
-  description: "Desarrollamos aplicaciones web, apps móviles y software a medida por entregas usables en semanas. Para tocar, usar y probar sin esperar al final."
+  title: "Software a medida para empresas | uhurus"
+  description: "Software a medida para tu empresa: conectamos tus sistemas y automatizamos procesos. Presupuesto cerrado. Bilbao y España."
 icon: fa-wrench
 order: 7
 summary: "Apps, web y herramientas que se adaptan a ti."

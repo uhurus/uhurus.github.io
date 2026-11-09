@@ -1,7 +1,7 @@
 ---
 seo:
-  title: "Desarrollo de app móvil a medida | uhurus"
-  description: "Desarrollamos tu app móvil a medida y en semanas la tienes en el móvil. Para tocar, probar y pasar a clientes sin esperar al final."
+  title: "Desarrollo de apps a medida para empresas | uhurus"
+  description: "Tu app a medida para empresas: PWA sin pasar por tiendas, iOS y Android. Presupuesto cerrado y código tuyo. Bilbao y toda España."
 icon: fa-mobile
 order: 10
 summary: "Tu app móvil, lista para probar en semanas."
