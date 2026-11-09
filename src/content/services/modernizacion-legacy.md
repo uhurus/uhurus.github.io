@@ -1,7 +1,7 @@
 ---
 seo:
-  title: "Renovamos tu software sin parar tu operativa | uhurus"
-  description: "¿Mantener tu sistema actual sale cada vez más caro? Lo renovamos por fases, sin parar tu operativa ni perder datos."
+  title: "Modernizar aplicaciones de empresa sin parar la operativa | uhurus"
+  description: "Modernizamos el software que ya usas por fases, migrando aplicaciones y datos sin parar la operativa ni perder información."
 icon: fa-layer-group
 order: 6
 summary: "Modernizamos lo que te frena sin tirar lo que factura."
@@ -10,7 +10,7 @@ kicker: "// servicio · renovación de software"
 title: "Aguantar tu software viejo <span class=\"text-grad\">sale más caro que renovarlo</span>"
 lead: "Renovamos tu sistema por fases, sin parar tu operativa ni perder datos. Y te decimos claro cuándo compensa renovar en vez de seguir aguantando."
 body: |-
-  Cada año que aguantas un sistema antiguo pagas dos veces: en mantenimiento y en todo lo que no puedes lanzar. Lo renovamos por dentro sin cortar el servicio: el sistema nuevo funciona mientras el viejo se retira, sin perder datos y sin que el negocio se pare.
+  Cada año que aguantas un sistema antiguo pagas dos veces: en mantenimiento y en todo lo que no puedes lanzar. Lo renovamos por dentro sin cortar el servicio: el sistema nuevo funciona mientras el viejo se retira, sin perder datos y sin que el negocio se pare. También llamado modernización de sistemas legacy: si tu sistema heredado te impide lanzar novedades, lo migramos por fases mientras el negocio sigue funcionando.
 points:
   - title: "Cambiar lo viejo por lo moderno"
     description: "Lenguajes y plataformas que se puedan mantener y evolucionar."
